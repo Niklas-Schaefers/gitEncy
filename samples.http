@@ -5,4 +5,4 @@
 
 
 ### Search Code
-GET  {{baseUrl}}/api/search
+GET  {{baseUrl}}/api/search?code=usestate&user=Niklas-Schaefers
