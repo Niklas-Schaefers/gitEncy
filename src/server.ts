@@ -2,10 +2,13 @@ import dotenv from "dotenv";
 dotenv.config();
 import path from "path";
 import express from "express";
+import router from "./server/routes";
 
 const { PORT = 6000 } = process.env;
 
 const app = express();
+
+app.use("/api", router);
 
 // Serve storybook production bundle
 app.use("/storybook", express.static("dist/storybook"));
@@ -19,5 +22,5 @@ app.get("*", (_req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`photoplay app listening at http://localhost:${PORT}`);
+  console.log(`app listening at http://localhost:${PORT}`);
 });
