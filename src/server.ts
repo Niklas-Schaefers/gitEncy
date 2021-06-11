@@ -8,6 +8,8 @@ const { PORT = 6000 } = process.env;
 
 const app = express();
 
+app.use(express.json());
+
 app.use("/api", router);
 
 // Serve storybook production bundle
