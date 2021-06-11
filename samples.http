@@ -1,5 +1,7 @@
 
-@baseUrl = http://localhost:6000
+@port = {{$dotenv PORT}}
+
+@baseUrl = http://localhost:6000{{port}}
 
 
 ### Search Code
