@@ -1,5 +1,9 @@
 import fetch from "node-fetch";
 
+type ErrorResult = {
+  message: string;
+};
+
 export async function fetchGitHubSearchCodeWithUser<T>(
   code: string,
   user: string
@@ -9,5 +13,13 @@ export async function fetchGitHubSearchCodeWithUser<T>(
     url += `${code}+user:${user}`;
   }
   const response = await fetch(url);
-  return response.json();
+  if (!response.ok) {
+    const errorResult: ErrorResult = await response.json();
+    console.log(errorResult);
+    throw {
+      message: errorResult.message,
+    };
+  }
+  const result = await response.json();
+  return result;
 }
