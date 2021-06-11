@@ -1,3 +1,8 @@
 
+@port = {{$dotenv PORT}}
+
+@baseUrl = http://localhost:6000{{port}}
+
+
 ### Search Code
-GET https://api.github.com/search/code?q=usestate+user:Niklas-Schaefers
+GET  {{baseUrl}}/api/search
