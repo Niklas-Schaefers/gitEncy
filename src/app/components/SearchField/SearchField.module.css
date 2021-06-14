@@ -1,0 +1,14 @@
+.label {
+  display: grid;
+}
+
+.label__input {
+  border: none;
+  width: 10em;
+  border-radius: 50em;
+  padding: 0.6em;
+}
+
+.label__input::placeholder {
+  padding-left: 1em;
+}
