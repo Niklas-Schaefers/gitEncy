@@ -4,10 +4,15 @@ type ErrorResult = {
   message: string;
 };
 
-export async function fetchGitHubSearchCodeWithUser<T>(
+type Searchrequest = {
+  full_name: string;
+  html_url: string;
+};
+
+export async function fetchGitHubSearchCodeWithUser(
   code: string,
   user: string
-): Promise<T> {
+): Promise<Searchrequest> {
   let url = "https://api.github.com/search/code?q=";
   if (code && user) {
     url += `${code}+user:${user}`;
