@@ -13,7 +13,11 @@ function Search(): JSX.Element {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <SearchField value={search} onChange={setSearch} placeholder="Search" />
+        <SearchField
+          value={search}
+          onChange={setSearch}
+          placeholder="Search..."
+        />
       </form>
     </div>
   );
