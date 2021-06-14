@@ -13,10 +13,7 @@ export async function fetchGitHubSearchCodeWithUser(
   code: string,
   user: string
 ): Promise<Searchrequest> {
-  let url = "https://api.github.com/search/code?q=";
-  if (code && user) {
-    url += `${code}+user:${user}`;
-  }
+  const url = `https://api.github.com/search/code?q=${code}+user:${user}`;
   const response = await fetch(url);
   if (!response.ok) {
     const errorResult: ErrorResult = await response.json();
