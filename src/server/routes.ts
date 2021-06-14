@@ -3,9 +3,9 @@ import { fetchGitHubSearchCodeWithUser } from "./gitHubSearch";
 
 const router = express.Router();
 
-router.get("/search", async (_req, res, next) => {
+router.get("/search", async (req, res, next) => {
   try {
-    const { query } = _req;
+    const { query } = req;
     if (!query.code) {
       res.status(400).send("Code required");
       return;
