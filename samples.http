@@ -1,8 +1,8 @@
 
 @port = {{$dotenv PORT}}
 
-@baseUrl = http://localhost:6000{{port}}
+@baseUrl = http://localhost:{{port}}
 
 
 ### Search Code
-GET  {{baseUrl}}/api/search
+GET  {{baseUrl}}/api/search?code=usestate&user=Niklas-Schaefers
