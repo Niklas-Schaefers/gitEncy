@@ -1,9 +1,11 @@
 import React from "react";
-import FooterMenu from "./HeaderSearch";
+import HeaderSearch from "./HeaderSearch";
 
 export default {
-  title: "Component/FooterMenu ",
-  component: FooterMenu,
+  title: "Component/HeaderMenu ",
+  component: HeaderSearch,
 };
 
-export const Search = (): JSX.Element => <FooterMenu />;
+export const Search = (): JSX.Element => (
+  <HeaderSearch onSearch={console.log} onFilter={console.log} />
+);

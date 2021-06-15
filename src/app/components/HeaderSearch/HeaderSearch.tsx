@@ -1,16 +1,24 @@
 import React, { useState } from "react";
+import FilterField from "../FilterField/FilterField";
 import CatLogo from "../Icons/CatLogo";
 import PlusIcon from "../Icons/PlusIcon";
 import SearchField from "../SearchField/SearchField";
 import BubbleHeader from "../Styling Elements/BubbleHeader";
 import styles from "./HeaderSearch.module.css";
 
-function HeaderSearch(): JSX.Element {
+type HeaderSearchProps = {
+  onSearch: (value: string) => void;
+  onFilter: (value: string) => void;
+};
+
+function HeaderSearch({ onSearch, onFilter }: HeaderSearchProps): JSX.Element {
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    alert(`Search`);
+    onSearch(search);
+    onFilter(filter);
   }
 
   return (
@@ -30,8 +38,14 @@ function HeaderSearch(): JSX.Element {
           onChange={setSearch}
           placeholder="Search..."
         />
+        <FilterField
+          value={filter}
+          onChange={setFilter}
+          placeholder="Filter..."
+        />
+        <button className={styles.submitButton}>Submit</button>
       </form>
-      <p className={styles.selectedFilter}>Selected Filter</p>
+      {/* <p className={styles.selectedFilter}>Selected Filter</p> */}
     </div>
   );
 }

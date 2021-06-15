@@ -11,11 +11,13 @@
 }
 
 .form {
-  padding: 3.5em 0 0 0;
+  padding: 1em 0 0 0;
   align-content: left;
   grid-column: 2/3;
   grid-row: 1;
   z-index: 4;
+  display: grid;
+  gap: 0.5em;
 }
 
 .catLogo {
@@ -39,4 +41,13 @@
   padding-top: 1em;
   color: var(--text-color);
   margin: 0;
+}
+
+.submitButton {
+  background-color: var(--tertiary-bg-color);
+  border-radius: 50em;
+  border: none;
+  font-size: 1em;
+  color: var(--text-color);
+  cursor: pointer;
 }
