@@ -5,9 +5,10 @@
 .label__input {
   border: none;
   border-radius: 50em;
-  padding: 0.6em;
+  padding: 1em;
 }
 
 .label__input::placeholder {
   padding-left: 1em;
+  color: var(--primary-bg-color);
 }

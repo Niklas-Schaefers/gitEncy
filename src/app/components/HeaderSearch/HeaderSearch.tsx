@@ -31,6 +31,7 @@ function HeaderSearch(): JSX.Element {
           placeholder="Search..."
         />
       </form>
+      <p className={styles.selectedFilter}>Selected Filter</p>
     </div>
   );
 }
