@@ -1,19 +1,17 @@
 .footerMenu {
   display: grid;
-  margin: 0;
 }
 
 .navBar {
   display: flex;
   justify-content: space-evenly;
-  width: 26em;
   align-items: center;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 3;
 }
 
 .bubbleFooter {
-  z-index: -1;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-column: 1;
+  grid-row: 1;
 }
