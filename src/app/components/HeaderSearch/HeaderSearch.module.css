@@ -7,7 +7,7 @@
 
 .bubbleHeader {
   grid-column: 1/4;
-  grid-row: 1/2;
+  grid-row: 1/4;
 }
 
 .form {
@@ -15,12 +15,12 @@
   align-content: left;
   grid-column: 2/3;
   grid-row: 1;
-  z-index: 1;
+  z-index: 4;
 }
 
 .catLogo {
   grid-column: 1;
-  grid-row: 1/2;
+  grid-row: 1/3;
   z-index: 1;
   width: 5rem;
   padding: 2em 0 0 3em;
@@ -33,12 +33,10 @@
   width: 2em;
   padding: 3.9em 0 0 0;
 }
-
 .selectedFilter {
   grid-column: 2;
-  grid-row: 1;
-  padding: 7em 1.3em;
-  z-index: 4;
+  grid-row: 2;
+  padding-top: 1em;
   color: var(--text-color);
   margin: 0;
 }
