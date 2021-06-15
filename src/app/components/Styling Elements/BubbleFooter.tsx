@@ -1,14 +1,8 @@
 import React from "react";
-import styles from "./Bubbles.module.css";
 
 function BubbleFooter(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 428 82.385"
-      {...props}
-      className={styles.BubbleFooter}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 428 82.385" {...props}>
       <path
         id="Intersection_2"
         data-name="Intersection 2"
