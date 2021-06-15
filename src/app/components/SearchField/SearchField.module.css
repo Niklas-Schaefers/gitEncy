@@ -10,5 +10,5 @@
 
 .label__input::placeholder {
   padding-left: 1em;
-  color: var(--primary-bg-color);
+  color: var(--secondary-bg-color);
 }
