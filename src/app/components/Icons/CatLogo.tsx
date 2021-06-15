@@ -4,8 +4,8 @@ function CatLogo(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="339.592"
-      height="332.577"
+      // width="339.592"
+      // height="332.577"
       viewBox="0 0 339.592 332.577"
       {...props}
     >
