@@ -1,7 +1,8 @@
 .container {
   display: grid;
-  grid-template-columns: 8em auto 8em;
+  grid-template-columns: 8em auto;
   column-gap: 1em;
+  align-self: center;
 }
 
 .bubbleHeader {
@@ -22,7 +23,7 @@
   grid-row: 1/2;
   z-index: 1;
   width: 5rem;
-  padding: 2em 0 0 2em;
+  padding: 2em 0 0 3em;
 }
 
 .plusIcon {
