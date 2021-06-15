@@ -1,19 +1,34 @@
-.footerMenu {
+.container {
   display: grid;
-  margin: 0;
+  grid-template-columns: 8em auto 8em;
+  gap: 1em;
 }
 
-.navBar {
-  display: flex;
-  justify-content: space-evenly;
-  width: 26em;
-  align-items: center;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.bubbleHeader {
+  grid-column: 1/4;
+  grid-row: 1;
 }
 
-.bubbleFooter {
-  z-index: -1;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+.form {
+  padding: 2em 0;
+  align-content: left;
+  grid-column: 2/3;
+  grid-row: 1;
+  z-index: 1;
+}
+
+.catLogo {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  width: 5rem;
+  padding: 2em;
+}
+
+.plusIcon {
+  grid-column: 3;
+  grid-row: 1;
+  z-index: 1;
+  width: 2em;
+  padding: 2em 0;
 }
