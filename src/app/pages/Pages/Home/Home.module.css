@@ -1,0 +1,45 @@
+.container {
+  display: grid;
+  height: 100vh;
+}
+
+.mainBubble {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  z-index: -1;
+  align-self: end;
+}
+
+.mainPinkBubble {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  z-index: 2;
+  align-self: end;
+  padding: 0 1em 8em 1em;
+}
+
+.headline {
+  color: var(--primary-bg-color);
+  font-size: 7em;
+  text-align: center;
+  text-shadow: -1px 1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff,
+    -1px -1px 0 #fff;
+  margin: 0;
+  align-self: end;
+}
+
+.subTitle {
+  color: var(--text-color);
+  grid-row: 2;
+  text-align: center;
+  padding-left: 1em;
+  margin: 0;
+}
+
+.catLogo {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  z-index: 2;
+  padding: 6em 2em;
+  align-self: end;
+}

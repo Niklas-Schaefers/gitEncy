@@ -1,5 +1,3 @@
-.BubbleFooter,
-.BubbleHeader {
-  width: 100%;
-  background-color: var(--primary-bg-color);
+.bubbleHeader {
+  width: 500px;
 }
