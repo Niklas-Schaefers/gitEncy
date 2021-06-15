@@ -4,8 +4,6 @@ function PlusIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      //   width="15.75"
-      //   height="15.75"
       viewBox="0 0 15.75 15.75"
       {...props}
     >

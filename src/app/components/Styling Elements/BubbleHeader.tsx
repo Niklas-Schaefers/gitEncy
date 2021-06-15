@@ -1,13 +1,13 @@
 import React from "react";
+import styles from "./Bubbles.module.css";
 
 function BubbleHeader(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="428.001"
-      height="150.762"
-      viewBox="0 0 428.001 150.762"
+      viewBox="0 30 428.001 150.762"
       {...props}
+      className={styles.BubbleHeader}
     >
       <path
         id="Intersection_2"
