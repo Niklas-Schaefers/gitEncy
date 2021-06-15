@@ -1,13 +1,20 @@
 import React from "react";
 import styles from "./App.module.css";
 import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
-import Search from "./pages/Search/Search";
+import Search from "./pages/Pages/Search/Search";
+import Home from "./pages/Pages/Home/Home";
 
 type CustomRouteProps = RouteProps & {
   Component: () => JSX.Element;
   path: string;
 };
-const routes: CustomRouteProps[] = [{ path: "/search", Component: Search }];
+const routes: CustomRouteProps[] = [
+  {
+    path: "/search",
+    Component: Search,
+  },
+  { path: "/", Component: Home },
+];
 function App(): JSX.Element {
   return (
     <div className={styles.container}>

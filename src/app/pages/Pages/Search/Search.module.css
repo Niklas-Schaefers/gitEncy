@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 7em auto 5em;
+}
+
+.result {
+  padding: 5em 2em 2em 2em;
+  color: var(--text-color);
+  overflow: scroll;
+  text-align: justify;
+  grid-row: 2 / 3;
+}
+
+.result p {
+  margin: 0;
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.footerMenu {
+  grid-row: 3;
+  align-self: end;
+  z-index: 1;
+}
+
+.headerSearch {
+  z-index: 2;
+  grid-row: 1;
+}

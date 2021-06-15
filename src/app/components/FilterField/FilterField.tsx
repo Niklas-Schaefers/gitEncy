@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./SearchField.module.css";
+import styles from "./FilterField.module.css";
 
 type InputProps = {
   placeholder: string;
@@ -7,7 +7,7 @@ type InputProps = {
   onChange: (value: string) => void;
 };
 
-function SearchField({
+function FilterField({
   placeholder,
   value,
   onChange,
@@ -25,4 +25,4 @@ function SearchField({
   );
 }
 
-export default SearchField;
+export default FilterField;

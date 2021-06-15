@@ -1,0 +1,18 @@
+.footerMenu {
+  display: grid;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  grid-column: 1;
+  grid-row: 1;
+  gap: 3em;
+  z-index: 3;
+}
+
+.bubbleFooter {
+  grid-column: 1;
+  grid-row: 1;
+}
