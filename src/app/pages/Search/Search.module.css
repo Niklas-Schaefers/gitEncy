@@ -1,21 +1,29 @@
 .container {
-  background-color: none;
   display: grid;
-}
-
-.form {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  padding: 2em 2em;
-}
-
-.bubbleHeader {
-  z-index: -1;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  background-color: var(--primary-bg-color);
+  height: 100vh;
+  grid-template-rows: 10em auto 6em;
 }
 
 .result {
-  padding-left: 2em;
-  width: 400px;
+  background-color: var(--primary-bg-color);
+  padding: 0 2em;
+  color: var(--text-color);
+  overflow: scroll;
+  text-align: justify;
+  grid-row: 2 / 3;
+}
+
+.result p {
+  margin: 0;
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+.footerMenu {
+  grid-row: 3;
+  align-self: end;
+  z-index: 1;
 }
