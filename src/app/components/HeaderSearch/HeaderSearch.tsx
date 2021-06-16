@@ -1,25 +1,17 @@
 import React, { useState } from "react";
 import FilterField from "../FilterField/FilterField";
 import CatLogo from "../Icons/CatLogo";
-import PlusIcon from "../Icons/PlusIcon";
 import SearchField from "../SearchField/SearchField";
 import BubbleHeader from "../Styling Elements/BubbleHeader";
 import styles from "./HeaderSearch.module.css";
 
 type HeaderSearchProps = {
-  onSearch: (value: string) => void;
-  onFilter: (value: string) => void;
+  onSubmit: (searchValue: string, filterValue: string) => void;
 };
 
-function HeaderSearch({ onSearch, onFilter }: HeaderSearchProps): JSX.Element {
+function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    onSearch(search);
-    onFilter(filter);
-  }
+  const [user, setUser] = useState("");
 
   return (
     <div className={styles.container}>
@@ -29,16 +21,22 @@ function HeaderSearch({ onSearch, onFilter }: HeaderSearchProps): JSX.Element {
       <div className={styles.catLogo}>
         <CatLogo />
       </div>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(search, user);
+        }}
+        className={styles.form}
+      >
         <SearchField
           value={search}
           onChange={setSearch}
-          placeholder="Search..."
+          placeholder="Search for code..."
         />
         <FilterField
-          value={filter}
-          onChange={setFilter}
-          placeholder="Filter..."
+          value={user}
+          onChange={setUser}
+          placeholder="Please enter GitHub user..."
         />
         <button className={styles.submitButton}>Submit</button>
       </form>
