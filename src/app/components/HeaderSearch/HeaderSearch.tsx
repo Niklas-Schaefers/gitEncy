@@ -29,9 +29,6 @@ function HeaderSearch({ onSearch, onFilter }: HeaderSearchProps): JSX.Element {
       <div className={styles.catLogo}>
         <CatLogo />
       </div>
-      <div className={styles.plusIcon}>
-        <PlusIcon />
-      </div>
       <form onSubmit={handleSubmit} className={styles.form}>
         <SearchField
           value={search}
@@ -45,7 +42,6 @@ function HeaderSearch({ onSearch, onFilter }: HeaderSearchProps): JSX.Element {
         />
         <button className={styles.submitButton}>Submit</button>
       </form>
-      {/* <p className={styles.selectedFilter}>Selected Filter</p> */}
     </div>
   );
 }
