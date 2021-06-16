@@ -15,18 +15,18 @@ function HomeIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element {
           transform="translate(-4.5 -3)"
           fill="none"
           stroke="var(--details-color)"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
         />
         <path
           d="M13.5,33V18h9V33"
           transform="translate(-4.5 -3)"
           fill="none"
           stroke="var(--details-color)"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
         />
       </g>
     </svg>
