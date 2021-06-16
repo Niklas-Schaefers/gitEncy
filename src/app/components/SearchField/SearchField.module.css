@@ -12,3 +12,7 @@
   padding-left: 1em;
   color: var(--secondary-bg-color);
 }
+
+.label__input:focus {
+  outline-color: var(--tertiary-bg-color);
+}
