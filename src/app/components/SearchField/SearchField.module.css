@@ -3,7 +3,7 @@
 }
 
 .label__input {
-  border: none;
+  border: 0.2em solid transparent;
   border-radius: 5em;
   padding: 0.5em 1.5em;
 }
@@ -13,5 +13,6 @@
 }
 
 .label__input:focus {
-  outline-color: var(--tertiary-bg-color);
+  outline: none;
+  border: 0.2em solid var(--tertiary-bg-color);
 }
