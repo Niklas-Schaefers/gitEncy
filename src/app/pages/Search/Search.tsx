@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import FooterMenu from "../../../components/FooterMenu/FooterMenu";
-import HeaderSearch from "../../../components/HeaderSearch/HeaderSearch";
+import FooterMenu from "../../components/FooterMenu/FooterMenu";
+import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
 import styles from "./Search.module.css";
 
 type GitHubData = {

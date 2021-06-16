@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CatLogo from "../../../components/Icons/CatLogo";
-import MainBubble from "../../../components/Styling Elements/MainBubble";
-import MainPinkBubble from "../../../components/Styling Elements/MainPinkBubble";
+import CatLogo from "../../components/Icons/CatLogo";
+import MainBubble from "../../components/Styling Elements/MainBubble";
+import MainPinkBubble from "../../components/Styling Elements/MainPinkBubble";
 
 import styles from "./Home.module.css";
 
