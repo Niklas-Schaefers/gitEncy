@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import FooterMenu from "../../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../../components/HeaderSearch/HeaderSearch";
-
 import styles from "./Search.module.css";
 
 type SearchResult = {
-  full_name: string;
+  name: string;
 };
 
 function Search(): JSX.Element {
@@ -14,12 +13,15 @@ function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:3001/api/search?code=${searchValue}&user=${filterValue}`
-    )
+    fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
-      .then((data) => setSearchResults(data));
+      .then((data) => setSearchResults(data.items));
   }, []);
+  console.log(searchResults);
+
+  // const searchResultsElements = searchResults.map((searchResults) => (
+  //   <SearchResults {searchResults.name} />
+  // ));
 
   return (
     <div className={styles.container}>
@@ -29,7 +31,7 @@ function Search(): JSX.Element {
       <div className={styles.result}>
         {searchValue}
         {filterValue}
-        {searchResults}
+        {/* {searchResultsElements} */}
       </div>
       <div className={styles.footerMenu}>
         <FooterMenu />
