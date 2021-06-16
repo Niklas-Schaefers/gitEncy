@@ -1,6 +1,8 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 function HomeIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+  const currentPath = useLocation().pathname;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +16,11 @@ function HomeIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element {
           d="M4.5,13.5,18,3,31.5,13.5V30a3,3,0,0,1-3,3H7.5a3,3,0,0,1-3-3Z"
           transform="translate(-4.5 -3)"
           fill="none"
-          stroke="var(--details-color)"
+          stroke={
+            currentPath === "/"
+              ? "var(--tertiary-bg-color)"
+              : "var(--details-color)"
+          }
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="3"
@@ -23,7 +29,11 @@ function HomeIcon(props: React.SVGProps<SVGSVGElement>): JSX.Element {
           d="M13.5,33V18h9V33"
           transform="translate(-4.5 -3)"
           fill="none"
-          stroke="var(--details-color)"
+          stroke={
+            currentPath === "/"
+              ? "var(--tertiary-bg-color)"
+              : "var(--details-color)"
+          }
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="3"
