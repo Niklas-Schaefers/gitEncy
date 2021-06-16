@@ -7,5 +7,5 @@ export default {
 };
 
 export const Search = (): JSX.Element => (
-  <HeaderSearch onSearch={console.log} onFilter={console.log} />
+  <HeaderSearch onSubmit={console.log} />
 );
