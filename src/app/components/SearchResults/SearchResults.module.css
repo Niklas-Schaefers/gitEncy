@@ -1,0 +1,24 @@
+.results {
+  padding: 1em;
+  display: grid;
+  align-items: center;
+}
+
+.name {
+  grid-column: 1;
+}
+
+.rawurl {
+  grid-column: 2;
+  justify-self: right;
+}
+
+.button {
+  background-color: var(--tertiary-bg-color);
+  border-radius: 5em;
+  border: none;
+  font-size: 1em;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5em 3em;
+}
