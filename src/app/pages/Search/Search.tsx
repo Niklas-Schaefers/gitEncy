@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
+import Results from "../../components/SearchResults/SearchResults";
 import styles from "./Search.module.css";
 
 type GitHubData = {
   items: [{ name: string; html_url: string }];
 };
 
-type TransformedResult = {
+export type TransformedResult = {
   name: string;
   rawUrl: string;
 };
@@ -33,17 +34,17 @@ function Search(): JSX.Element {
         setSearchResults(transformed);
       });
   }
+
+  const searchElements = searchResults.map((searchResults) => (
+    <Results key={searchResults.rawUrl} searchResults={searchResults} />
+  ));
+
   return (
     <div className={styles.container}>
       <div className={styles.headerSearch}>
         <HeaderSearch onSubmit={fetchGitHubData} />
       </div>
-      {console.log(searchResults)}
-      <div className={styles.result}>
-        {searchResults.map((searchResult) => (
-          <span key={searchResult.rawUrl}>{searchResult.name}</span>
-        ))}
-      </div>
+      <div className={styles.searchElements}>{searchElements}</div>
       <div className={styles.footerMenu}>
         <FooterMenu />
       </div>
