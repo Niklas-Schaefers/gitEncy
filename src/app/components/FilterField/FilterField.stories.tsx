@@ -6,6 +6,6 @@ export default {
   component: FilterField,
 };
 
-export const search = (): JSX.Element => (
+export const Default = (): JSX.Element => (
   <FilterField value="" onChange={console.log} placeholder="Filter..." />
 );

@@ -6,6 +6,6 @@ export default {
   component: HeaderSearch,
 };
 
-export const Search = (): JSX.Element => (
+export const Default = (): JSX.Element => (
   <HeaderSearch onSubmit={console.log} />
 );
