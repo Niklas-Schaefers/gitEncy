@@ -9,7 +9,11 @@ type SearchResults = {
 function Results({ searchResults }: SearchResults): JSX.Element {
   return (
     <div className={styles.results}>
-      <span className={styles.name}>{searchResults.name}</span>
+      <span className={styles.name}>
+        {searchResults.name
+          .substring(0, searchResults.name.lastIndexOf("."))
+          .toUpperCase()}
+      </span>
       <a href={searchResults.rawUrl} className={styles.rawurl}>
         <button className={styles.button}>Check Code</button>
       </a>
