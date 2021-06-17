@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./App.module.css";
 import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
-import Search from "./pages/Pages/Search/Search";
-import Home from "./pages/Pages/Home/Home";
+import Search from "./pages/Search/Search";
+import Home from "./pages/Home/Home";
 
 type CustomRouteProps = RouteProps & {
   Component: () => JSX.Element;
@@ -30,5 +30,4 @@ function App(): JSX.Element {
     </div>
   );
 }
-
 export default App;

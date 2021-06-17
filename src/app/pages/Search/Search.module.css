@@ -5,15 +5,18 @@
 }
 
 .result {
-  padding: 5em 2em 2em 2em;
+  padding: 4em 2em 2em 2em;
   color: var(--text-color);
   overflow: scroll;
   text-align: justify;
+  display: flex;
+  flex-flow: column;
+  word-wrap: break-word;
   grid-row: 2 / 3;
 }
 
-.result p {
-  margin: 0;
+.result span {
+  padding-top: 1em;
 }
 
 .result::-webkit-scrollbar {

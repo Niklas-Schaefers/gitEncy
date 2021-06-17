@@ -13,8 +13,8 @@ function CatLogo(props: React.SVGProps<SVGSVGElement>): JSX.Element {
         transform="translate(-60.004 -205.3)"
         fill="none"
         stroke="var(--details-color)"
-        stroke-miterlimit="10"
-        stroke-width="3"
+        strokeMiterlimit="10"
+        strokeWidth="3"
       />
     </svg>
   );
