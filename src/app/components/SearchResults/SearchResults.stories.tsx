@@ -6,4 +6,11 @@ export default {
   component: Results,
 };
 
-// export const Default = (): JSX.Element => <Results />;
+export const Default = (): JSX.Element => (
+  <Results
+    searchResults={{
+      name: "Usestate.js",
+      rawUrl: "testet",
+    }}
+  />
+);

@@ -14,7 +14,7 @@ function Results({ searchResults }: SearchResults): JSX.Element {
           .substring(0, searchResults.name.lastIndexOf("."))
           .toUpperCase()}
       </span>
-      <a href={searchResults.rawUrl} className={styles.rawurl}>
+      <a href={searchResults.rawUrl} className={styles.rawUrl}>
         <button className={styles.button}>Check Code</button>
       </a>
     </div>

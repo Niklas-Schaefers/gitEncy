@@ -8,7 +8,7 @@
   grid-column: 1;
 }
 
-.rawurl {
+.rawUrl {
   grid-column: 2;
   justify-self: right;
 }
