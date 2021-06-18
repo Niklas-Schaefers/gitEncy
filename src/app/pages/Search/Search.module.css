@@ -4,7 +4,18 @@
   grid-template-rows: 7em auto 5em;
 }
 
-.result {
+.footerMenu {
+  grid-row: 3;
+  align-self: end;
+  z-index: 1;
+}
+
+.headerSearch {
+  z-index: 2;
+  grid-row: 1;
+}
+
+.searchElements {
   padding: 4em 2em 2em 2em;
   color: var(--text-color);
   overflow: scroll;
@@ -15,21 +26,6 @@
   grid-row: 2 / 3;
 }
 
-.result span {
-  padding-top: 1em;
-}
-
-.result::-webkit-scrollbar {
+.searchElements::-webkit-scrollbar {
   display: none;
-}
-
-.footerMenu {
-  grid-row: 3;
-  align-self: end;
-  z-index: 1;
-}
-
-.headerSearch {
-  z-index: 2;
-  grid-row: 1;
 }

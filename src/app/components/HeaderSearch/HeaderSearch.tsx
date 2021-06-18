@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import FilterField from "../FilterField/FilterField";
 import CatLogo from "../Icons/CatLogo";
 import SearchField from "../SearchField/SearchField";
 import BubbleHeader from "../Styling Elements/BubbleHeader";
@@ -33,7 +32,7 @@ function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
           onChange={setSearch}
           placeholder="Search for code..."
         />
-        <FilterField
+        <SearchField
           value={user}
           onChange={setUser}
           placeholder="Please enter GitHub user..."

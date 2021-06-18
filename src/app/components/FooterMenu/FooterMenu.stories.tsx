@@ -6,4 +6,4 @@ export default {
   component: FooterMenu,
 };
 
-export const Search = (): JSX.Element => <FooterMenu />;
+export const Default = (): JSX.Element => <FooterMenu />;
