@@ -35,8 +35,8 @@ function Search(): JSX.Element {
       });
   }
 
-  const searchElements = searchResults.map((searchResults) => (
-    <Results key={searchResults.rawUrl} searchResults={searchResults} />
+  const searchElements = searchResults.map((searchResult) => (
+    <Results key={searchResult.rawUrl} searchResult={searchResult} />
   ));
 
   return (
