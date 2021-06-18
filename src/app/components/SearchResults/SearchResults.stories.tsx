@@ -8,7 +8,7 @@ export default {
 
 export const Default = (): JSX.Element => (
   <Results
-    searchResults={{
+    searchResult={{
       name: "Usestate.js",
       rawUrl: "testet",
     }}
