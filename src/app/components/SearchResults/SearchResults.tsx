@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { TransformedResult } from "../../pages/Search/Search";
+import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
 
 type SearchResults = {
-  searchResults: TransformedResult;
+  searchResult: TransformedResult;
 };
 
-function Results({ searchResults }: SearchResults): JSX.Element {
+function Results({ searchResult }: SearchResults): JSX.Element {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
-    <div className={styles.results}>
-      <span className={styles.name}>
-        {searchResults.name
-          .substring(0, searchResults.name.lastIndexOf("."))
-          .toUpperCase()}
-      </span>
-      <a href={searchResults.rawUrl} className={styles.rawUrl}>
-        <button className={styles.button}>Check Code</button>
-      </a>
+    <div className={styles.searchResults}>
+      <div className={styles.results}>
+        <span className={styles.name}>
+          {searchResult.name.substring(0, searchResult.name.lastIndexOf("."))}
+          {showModal && (
+            <Modal
+              searchResults={searchResult}
+              setShowModal={setShowModal}
+            ></Modal>
+          )}
+        </span>
+        <button className={styles.button} onClick={() => setShowModal(true)}>
+          Check Code
+        </button>
+      </div>
     </div>
   );
 }
