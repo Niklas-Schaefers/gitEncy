@@ -1,18 +1,3 @@
-.results {
-  padding: 1em;
-  display: grid;
-  align-items: center;
-}
-
-.name {
-  grid-column: 1;
-}
-
-.rawUrl {
-  grid-column: 2;
-  justify-self: right;
-}
-
 .button {
   background-color: var(--tertiary-bg-color);
   border-radius: 5em;
@@ -21,4 +6,17 @@
   color: var(--text-color);
   cursor: pointer;
   padding: 0.5em 3em;
+  grid-column: 2;
+  justify-self: right;
+}
+
+.name {
+  grid-column: 1;
+  text-transform: uppercase;
+}
+
+.results {
+  padding: 1em;
+  display: grid;
+  align-items: center;
 }
