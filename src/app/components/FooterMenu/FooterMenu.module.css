@@ -1,18 +1,15 @@
 .footerMenu {
   display: grid;
+  margin: 0;
+  width: 100%;
 }
 
 .navBar {
+  padding: 1.5em 0 0.8em 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  grid-column: 1;
-  grid-row: 1;
   gap: 3em;
-  z-index: 3;
-}
-
-.bubbleFooter {
-  grid-column: 1;
-  grid-row: 1;
+  border-radius: 60% 120% 0% 0%;
+  background-color: var(--secondary-bg-color);
 }
