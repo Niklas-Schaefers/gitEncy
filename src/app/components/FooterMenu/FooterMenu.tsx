@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import HomeIcon from "../Icons/HomeIcon";
 import SavedDetailsIcon from "../Icons/SavedDetailsIcon";
 import SearchFieldIcon from "../Icons/SearchFieldIcon";
-import BubbleFooter from "../Styling Elements/BubbleFooter";
 import styles from "./FooterMenu.module.css";
 
 function FooterMenu(): JSX.Element {
@@ -15,9 +14,6 @@ function FooterMenu(): JSX.Element {
         </Link>
         <SavedDetailsIcon />
         <SearchFieldIcon />
-      </div>
-      <div className={styles.bubbleFooter}>
-        <BubbleFooter />
       </div>
     </div>
   );
