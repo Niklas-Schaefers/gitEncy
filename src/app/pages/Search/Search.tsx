@@ -41,13 +41,9 @@ function Search(): JSX.Element {
 
   return (
     <div className={styles.container}>
-      <div className={styles.headerSearch}>
-        <HeaderSearch onSubmit={fetchGitHubData} />
-      </div>
+      <HeaderSearch onSubmit={fetchGitHubData} />
       <div className={styles.searchElements}>{searchElements}</div>
-      <div className={styles.footerMenu}>
-        <FooterMenu />
-      </div>
+      <FooterMenu />
     </div>
   );
 }

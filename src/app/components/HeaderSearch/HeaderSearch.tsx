@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CatLogo from "../Icons/CatLogo";
 import SearchField from "../SearchField/SearchField";
-import BubbleHeader from "../Styling Elements/BubbleHeader";
 import styles from "./HeaderSearch.module.css";
 
 type HeaderSearchProps = {
@@ -14,9 +13,6 @@ function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
 
   return (
     <div className={styles.container}>
-      <div className={styles.bubbleHeader}>
-        <BubbleHeader />
-      </div>
       <div className={styles.catLogo}>
         <CatLogo />
       </div>
