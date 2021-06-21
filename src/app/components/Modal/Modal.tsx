@@ -1,5 +1,5 @@
 import React from "react";
-import useFetch from "../../usefetch";
+import useFetch from "../../useFetch";
 import { TransformedResult } from "../../pages/Search/Search";
 import styles from "./Modal.module.css";
 
