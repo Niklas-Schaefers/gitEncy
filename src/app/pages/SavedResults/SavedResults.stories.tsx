@@ -2,7 +2,7 @@ import React from "react";
 import SavedResults from "./SavedResults";
 
 export default {
-  title: "Page/SearchResults",
+  title: "Page/SavedResults",
   component: SavedResults,
   parameters: {
     layout: "fullscreen",
