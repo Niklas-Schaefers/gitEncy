@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1em;
+}
+
+.savedElements {
+  color: var(--text-color);
+  overflow: scroll;
+  text-align: justify;
+  display: flex;
+  flex-flow: column;
+  word-wrap: break-word;
+  padding: 0 1em 0 1em;
+}
+
+.savedElements::-webkit-scrollbar {
+  display: none;
+}

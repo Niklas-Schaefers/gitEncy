@@ -12,8 +12,12 @@ function FooterMenu(): JSX.Element {
         <Link to="/">
           <HomeIcon />
         </Link>
-        <SavedDetailsIcon />
-        <SearchFieldIcon />
+        <Link to="/search">
+          <SearchFieldIcon />
+        </Link>
+        <Link to="/savedresults">
+          <SavedDetailsIcon />
+        </Link>
       </div>
     </div>
   );
