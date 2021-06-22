@@ -2,7 +2,7 @@ import React from "react";
 import CatLogo from "../Icons/CatLogo";
 import styles from "./HeaderBar.module.css";
 
-function HeaderSearch(): JSX.Element {
+function HeaderBar(): JSX.Element {
   return (
     <div className={styles.container}>
       <div className={styles.catLogo}>
@@ -15,4 +15,4 @@ function HeaderSearch(): JSX.Element {
   );
 }
 
-export default HeaderSearch;
+export default HeaderBar;

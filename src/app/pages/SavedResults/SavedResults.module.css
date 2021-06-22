@@ -5,7 +5,7 @@
   row-gap: 1em;
 }
 
-.savedSearchElements {
+.savedElements {
   color: var(--text-color);
   overflow: scroll;
   text-align: justify;
@@ -15,6 +15,6 @@
   padding: 0 1em 0 1em;
 }
 
-.savedSearchElements::-webkit-scrollbar {
+.savedElements::-webkit-scrollbar {
   display: none;
 }

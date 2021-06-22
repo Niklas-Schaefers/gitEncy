@@ -2,7 +2,7 @@ import React from "react";
 import HeaderBar from "./HeaderBar";
 
 export default {
-  title: "Component/HeaderMenu ",
+  title: "Component/HeaderBar ",
   component: HeaderBar,
 };
 

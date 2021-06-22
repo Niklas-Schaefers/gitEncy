@@ -7,7 +7,7 @@ function SavedResults(): JSX.Element {
   return (
     <div className={styles.container}>
       <HeaderBar />
-      <div className={styles.savedSearchElements}>searchElements</div>
+      <div className={styles.savedElements}>savedElements</div>
       <FooterMenu />
     </div>
   );
