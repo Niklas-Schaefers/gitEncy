@@ -1,4 +1,9 @@
 import express from "express";
+import {
+  deleteSavedSearchResults,
+  readSavedSearchResults,
+  saveSearchResult,
+} from "../utils/searchresults";
 import { fetchGitHubSearchCodeWithUser } from "./gitHubSearch";
 
 const router = express.Router();
@@ -24,4 +29,20 @@ router.get("/search", async (req, res, next) => {
     next(error);
   }
 });
+
+router.post("/searchresult", async (_req, res) => {
+  await saveSearchResult(_req.body);
+  res.send("Searchresult saved in db");
+});
+
+router.get("/searchresults", async (_req, res) => {
+  const searchResults = await readSavedSearchResults();
+  res.json(searchResults);
+});
+
+router.delete("/searchresult", async (_req, res) => {
+  await deleteSavedSearchResults(_req.body);
+  res.send("Searchresult deleted from db");
+});
+
 export default router;
