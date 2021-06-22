@@ -3,12 +3,17 @@ import styles from "./App.module.css";
 import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
+import SavedResults from "./pages/SavedResults/SavedResults";
 
 type CustomRouteProps = RouteProps & {
   Component: () => JSX.Element;
   path: string;
 };
 const routes: CustomRouteProps[] = [
+  {
+    path: "/savedresults",
+    Component: SavedResults,
+  },
   {
     path: "/search",
     Component: Search,
