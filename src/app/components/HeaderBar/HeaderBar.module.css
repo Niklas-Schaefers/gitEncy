@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  column-gap: 1em;
+  align-self: center;
+  grid-template-columns: minmax(2em, 7em) auto;
+  border-radius: 0% 0% 70% 50%;
+  background-color: var(--secondary-bg-color);
+  width: 100%;
+  color: var(--text-color);
+  padding-bottom: 4em;
+}
+
+.catLogo {
+  grid-column: 1;
+  padding: 2em 0 0 1em;
+}
+
+.headline {
+  grid-column: 2;
+  padding: 2em;
+}
