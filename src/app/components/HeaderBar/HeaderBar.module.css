@@ -7,7 +7,6 @@
   background-color: var(--secondary-bg-color);
   width: 100%;
   color: var(--text-color);
-  padding-bottom: 4em;
 }
 
 .catLogo {
@@ -17,5 +16,5 @@
 
 .headline {
   grid-column: 2;
-  padding: 2em;
+  padding: 2em 0 3em 0;
 }
