@@ -7,7 +7,6 @@ type LabeledInputProps = {
   value: string | number;
   type?: string;
   required?: boolean;
-  min?: number;
   onChange: (value: string) => void;
 };
 
@@ -16,7 +15,6 @@ export default function LabeledInput({
   value,
   type,
   required,
-  min,
   onChange,
 }: LabeledInputProps): JSX.Element {
   return (
