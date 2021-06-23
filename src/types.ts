@@ -19,7 +19,7 @@ type Owner = {
 
 export type TransformedResult = {
   name: string;
+  ownerImageUrl: string;
   rawUrl: string;
   repoName: string;
-  ownerImageUrl: string;
 };

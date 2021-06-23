@@ -35,7 +35,6 @@ function Search(): JSX.Element {
 
   return (
     <div className={styles.container}>
-      {console.log(searchResults)}
       <HeaderSearch onSubmit={fetchGitHubData} />
       <div className={styles.searchElements}>{searchElements}</div>
       <FooterMenu />

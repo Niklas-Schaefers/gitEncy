@@ -12,12 +12,15 @@ type SearchResults = {
 
 function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
   const { data: code } = useFetch(searchResults.rawUrl);
+  console.log(searchResults);
 
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modal}>
         <div className={styles.header}>
           {searchResults.name.substring(0, searchResults.name.lastIndexOf("."))}
+          <br />
+          {searchResults.repoName}
         </div>
         <div className={styles.code}>
           <CodeHighlighted code={code || ""} />
