@@ -4,14 +4,14 @@ import { getSearchResultsCollection } from "./database";
 export const saveSearchResult = async ({
   name,
   rawUrl,
-  ownerImageUrl,
   repoName,
+  ownerImageUrl,
 }: TransformedResult): Promise<void> => {
   await getSearchResultsCollection().insertOne({
     name,
     rawUrl,
-    ownerImageUrl,
     repoName,
+    ownerImageUrl,
   });
 };
 
@@ -27,13 +27,13 @@ export const readSavedSearchResults = async (): Promise<
 export const deleteSavedSearchResults = async ({
   name,
   rawUrl,
-  ownerImageUrl,
   repoName,
+  ownerImageUrl,
 }: TransformedResult): Promise<void> => {
   await getSearchResultsCollection().deleteOne({
     name,
     rawUrl,
-    ownerImageUrl,
     repoName,
+    ownerImageUrl,
   });
 };

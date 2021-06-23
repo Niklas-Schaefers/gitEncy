@@ -3,13 +3,15 @@ import { TransformedResult } from "../types";
 export async function postSearchResult({
   name,
   rawUrl,
+  repoName,
+  ownerImageUrl,
 }: TransformedResult): Promise<TransformedResult> {
   const response = await fetch("/api/searchresult", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, rawUrl }),
+    body: JSON.stringify({ name, rawUrl, repoName, ownerImageUrl }),
   });
   if (!response.ok) {
     const errorMessage = await response.text();
@@ -22,13 +24,15 @@ export async function postSearchResult({
 export async function deleteSearchResult({
   name,
   rawUrl,
+  repoName,
+  ownerImageUrl,
 }: TransformedResult): Promise<TransformedResult> {
   const response = await fetch("/api/searchresult", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, rawUrl }),
+    body: JSON.stringify({ name, rawUrl, repoName, ownerImageUrl }),
   });
   if (!response.ok) {
     const errorMessage = await response.text();
