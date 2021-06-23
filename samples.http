@@ -8,7 +8,7 @@
 GET  {{baseUrl}}/api/search?code=usestate&user=Niklas-Schaefers
 
 ### Get all Searchresults
-GET {{baseUrl}}/api/searchresults HTTP/1.1
+GET {{baseUrl}}/api/savedresults HTTP/1.1
 Accept: application/json
 
 ### Add a Searchresult
