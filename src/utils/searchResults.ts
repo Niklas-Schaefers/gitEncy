@@ -1,11 +1,13 @@
 import type { TransformedResult } from "../types";
 import { getSearchResultsCollection } from "./database";
 
-export const saveSearchResult = async (
-  name: TransformedResult
-): Promise<void> => {
+export const saveSearchResult = async ({
+  name,
+  rawUrl,
+}: TransformedResult): Promise<void> => {
   await getSearchResultsCollection().insertOne({
-    ...name,
+    name,
+    rawUrl,
   });
 };
 
@@ -18,10 +20,12 @@ export const readSavedSearchResults = async (): Promise<
     .toArray();
 };
 
-export const deleteSavedSearchResults = async (
-  name: TransformedResult
-): Promise<void> => {
+export const deleteSavedSearchResults = async ({
+  name,
+  rawUrl,
+}: TransformedResult): Promise<void> => {
   await getSearchResultsCollection().deleteOne({
-    ...name,
+    name,
+    rawUrl,
   });
 };
