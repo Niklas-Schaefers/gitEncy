@@ -4,12 +4,17 @@ import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
 import SavedResults from "./pages/SavedResults/SavedResults";
+import Login from "./pages/Login/Login";
 
 type CustomRouteProps = RouteProps & {
   Component: () => JSX.Element;
   path: string;
 };
 const routes: CustomRouteProps[] = [
+  {
+    path: "/login",
+    Component: Login,
+  },
   {
     path: "/savedresults",
     Component: SavedResults,
