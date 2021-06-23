@@ -1,9 +1,8 @@
 .container {
   display: grid;
-  column-gap: 1em;
   align-self: center;
   grid-template-columns: minmax(2em, 7em) auto;
-  border-radius: 0% 0% 70% 50%;
+  border-radius: 0% 0% 20% 20%;
   background-color: var(--secondary-bg-color);
   width: 100%;
   color: var(--text-color);
@@ -16,5 +15,6 @@
 
 .headline {
   grid-column: 2;
-  padding: 2em 0 3em 0;
+  text-align: center;
+  padding: 2em 1em 2em 0;
 }
