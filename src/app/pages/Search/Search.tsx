@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
-import Results from "../../components/SearchResults/SearchResults";
+import SearchResults from "../../components/SearchResults/SearchResults";
 import styles from "./Search.module.css";
 
 type GitHubData = {
@@ -36,7 +36,7 @@ function Search(): JSX.Element {
   }
 
   const searchElements = searchResults.map((searchResult) => (
-    <Results key={searchResult.rawUrl} searchResult={searchResult} />
+    <SearchResults key={searchResult.rawUrl} searchResult={searchResult} />
   ));
 
   return (

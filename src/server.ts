@@ -1,8 +1,10 @@
 import dotenv from "dotenv";
 dotenv.config();
+
 import path from "path";
 import express from "express";
 import router from "./server/routes";
+import { connectDatabase } from "./utils/database";
 
 const { PORT = 6000 } = process.env;
 
@@ -23,6 +25,13 @@ app.get("*", (_req, res) => {
   res.sendFile(path.join(__dirname, "app/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`app listening at http://localhost:${PORT}`);
+if (process.env.MONGODB_URL === undefined) {
+  throw new Error("Missing env MONGODB_URL");
+}
+
+connectDatabase(process.env.MONGODB_URL).then(() => {
+  console.log("Database connected");
+  app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}}`);
+  });
 });

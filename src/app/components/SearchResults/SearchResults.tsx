@@ -7,7 +7,7 @@ type SearchResults = {
   searchResult: TransformedResult;
 };
 
-function Results({ searchResult }: SearchResults): JSX.Element {
+function SearchResults({ searchResult }: SearchResults): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
@@ -30,4 +30,4 @@ function Results({ searchResult }: SearchResults): JSX.Element {
   );
 }
 
-export default Results;
+export default SearchResults;

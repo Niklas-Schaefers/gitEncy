@@ -2,6 +2,7 @@ import React from "react";
 import useFetch from "../../usefetch";
 import { TransformedResult } from "../../pages/Search/Search";
 import styles from "./Modal.module.css";
+import { deleteSearchResult, postSearchResult } from "../../../utils/api";
 
 type SearchResults = {
   searchResults: TransformedResult;
@@ -21,9 +22,15 @@ function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
         <div className={styles.modal__buttons}>
           <button
             className={styles.modal__saveButton}
-            onClick={() => setShowModal(false)}
+            onClick={() => postSearchResult(searchResults)}
           >
             Save
+          </button>
+          <button
+            className={styles.modal__saveButton}
+            onClick={() => deleteSearchResult(searchResults)}
+          >
+            Delete
           </button>
           <button
             className={styles.modal__backButton}
@@ -37,5 +44,4 @@ function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
     </div>
   );
 }
-
 export default Modal;
