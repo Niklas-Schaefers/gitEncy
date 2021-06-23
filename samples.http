@@ -6,3 +6,21 @@
 
 ### Search Code
 GET  {{baseUrl}}/api/search?code=usestate&user=Niklas-Schaefers
+
+### Get all Searchresults
+GET {{baseUrl}}/api/savedresults HTTP/1.1
+Accept: application/json
+
+### Add a Searchresult
+POST {{baseUrl}}/api/searchresult HTTP/1.1
+Content-Type: application/json
+
+{"name": "Test1",
+"rawUrl": "www.test.de"}
+
+### Delete a Searchresult
+DELETE {{baseUrl}}/api/searchresult HTTP/1.1
+Content-Type: application/json
+
+{"name": "Test1",
+"rawUrl": "www.test.de"}
