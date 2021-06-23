@@ -4,7 +4,7 @@ import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import styles from "./SavedResults.module.css";
 import SearchResults from "../../components/SearchResults/SearchResults";
-import { TransformedResult } from "../Search/Search";
+import { TransformedResult } from "../../../types";
 
 function SavedResults(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
