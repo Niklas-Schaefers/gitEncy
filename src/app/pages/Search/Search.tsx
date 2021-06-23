@@ -1,34 +1,9 @@
 import React, { useState } from "react";
+import { GitHubData, TransformedResult } from "../../../types";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import styles from "./Search.module.css";
-
-type GitHubData = {
-  items: GitHubItems[];
-};
-
-type GitHubItems = {
-  name: string;
-  html_url: string;
-  repository: Repository;
-};
-
-type Repository = {
-  full_name: string;
-  owner: Owner;
-};
-
-type Owner = {
-  avatar_url: string;
-};
-
-export type TransformedResult = {
-  name: string;
-  rawUrl: string;
-  repoName: string;
-  ownerImageUrl: string;
-};
 
 function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
