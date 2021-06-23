@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  height: 100vh;
+  justify-items: center;
+  align-content: center;
+  gap: 2em;
+  background-color: var(--primary-bg-color);
+}
+
+.logo {
+  width: 30%;
+}
+
+.loginButton {
+  background-color: var(--tertiary-bg-color);
+  border-radius: 5em;
+  border: none;
+  font-size: 1em;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.3em;
+  width: 100%;
+}
+
+.form {
+  display: grid;
+  gap: 0.5em;
+}
