@@ -26,7 +26,6 @@ export default function LabeledInput({
         value={value}
         required={required}
         onChange={(e) => onChange(e.target.value)}
-        min={min}
       />
     </label>
   );
