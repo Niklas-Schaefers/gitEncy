@@ -35,7 +35,7 @@ router.post("/searchresult", async (_req, res) => {
   res.send("Searchresult saved in db");
 });
 
-router.get("/searchresults", async (_req, res) => {
+router.get("/savedresults", async (_req, res) => {
   const searchResults = await readSavedSearchResults();
   res.json(searchResults);
 });
