@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TransformedResult } from "../../pages/Search/Search";
+import { TransformedResult } from "../../../types";
 import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
 
