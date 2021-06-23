@@ -23,3 +23,7 @@ export type TransformedResult = {
   rawUrl: string;
   repoName: string;
 };
+
+export type SearchResults = {
+  searchResult: TransformedResult;
+};

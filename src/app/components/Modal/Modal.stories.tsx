@@ -8,7 +8,7 @@ export default {
 
 export const Default = (): JSX.Element => (
   <Modal
-    searchResult={{
+    searchResults={{
       name: "Usestate.js",
       ownerImageUrl: "string",
       rawUrl: "string",

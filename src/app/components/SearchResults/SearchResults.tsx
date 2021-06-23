@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { TransformedResult } from "../../../types";
 import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
-
-type SearchResults = {
-  searchResult: TransformedResult;
-};
+import { SearchResults } from "../../../types";
 
 function SearchResults({ searchResult }: SearchResults): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
