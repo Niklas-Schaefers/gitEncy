@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GitHubData, TransformedResult } from "../../../types";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
-import SearchResults from "../../components/SearchResults/SearchResults";
+import SearchResultsComponent from "../../components/SearchResults/SearchResults";
 import styles from "./Search.module.css";
 
 function Search(): JSX.Element {
@@ -30,7 +30,10 @@ function Search(): JSX.Element {
   }
 
   const searchElements = searchResults.map((searchResult) => (
-    <SearchResults key={searchResult.rawUrl} searchResult={searchResult} />
+    <SearchResultsComponent
+      key={searchResult.rawUrl}
+      searchResult={searchResult}
+    />
   ));
 
   return (

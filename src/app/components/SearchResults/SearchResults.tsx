@@ -3,7 +3,7 @@ import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
 import { SearchResults } from "../../../types";
 
-function SearchResults({ searchResult }: SearchResults): JSX.Element {
+function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
@@ -26,4 +26,4 @@ function SearchResults({ searchResult }: SearchResults): JSX.Element {
   );
 }
 
-export default SearchResults;
+export default SearchResultsComponent;
