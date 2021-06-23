@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSavedResultsFromMongoDB } from "../../../utils/api";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import styles from "./SavedResults.module.css";
+import SearchResults from "../../components/SearchResults/SearchResults";
+
+export type TransformedResult = {
+  name: string;
+  rawUrl: string;
+};
 
 function SavedResults(): JSX.Element {
+  const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
+  useEffect(() => {
+    getSavedResultsFromMongoDB();
+    fetch(`/api/savedresults`)
+      .then((response) => response.json())
+      .then((data) => {
+        return setSearchResults(data);
+      });
+  }, []);
+
+  const savedElements = searchResults.map((searchResult: TransformedResult) => (
+    <SearchResults key={searchResult.rawUrl} searchResult={searchResult} />
+  ));
+
   return (
     <div className={styles.container}>
       <HeaderBar />
-      <div className={styles.savedElements}>savedElements</div>
+      <div className={styles.savedElements}>{savedElements}</div>
       <FooterMenu />
     </div>
   );
