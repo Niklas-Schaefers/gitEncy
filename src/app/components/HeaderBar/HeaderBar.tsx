@@ -8,9 +8,9 @@ function HeaderBar(): JSX.Element {
       <div className={styles.catLogo}>
         <CatLogo />
       </div>
-      <div className={styles.headline}>
-        <h1>Saved Results</h1>
-      </div>
+      <h1 className={styles.headline}>
+        Your saved <br /> Code
+      </h1>
     </div>
   );
 }
