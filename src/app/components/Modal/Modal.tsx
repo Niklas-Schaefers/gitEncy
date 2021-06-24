@@ -13,13 +13,23 @@ type SearchResults = {
 function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
   const { data: code } = useFetch(searchResults.rawUrl);
 
+  const userName = searchResults.repoName.substring(
+    0,
+    searchResults.repoName.lastIndexOf("/")
+  );
+  const fileName = searchResults.name.substring(
+    0,
+    searchResults.name.lastIndexOf(".")
+  );
+  const repoName = searchResults.repoName.substring(
+    searchResults.repoName.indexOf("/") + 1
+  );
+
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modal}>
         <div className={styles.header}>
-          {searchResults.name.substring(0, searchResults.name.lastIndexOf("."))}
-          <br />
-          {searchResults.repoName}
+          {userName} {" - "} {fileName} {" - "} {repoName}
         </div>
         <div className={styles.code}>
           <CodeHighlighted code={code || ""} />
