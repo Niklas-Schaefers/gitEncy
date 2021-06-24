@@ -25,8 +25,8 @@ function SavedResultsComponent({ searchResult }: SearchResults): JSX.Element {
         onClick={() => setShowCollapse(!showCollapse)}
         className={styles.toggle}
       >
-        {fileName} {" by "}
-        {userName}
+        {searchResult.searchValue.toUpperCase()} {" in "}
+        {repoName} {" by "} {userName}
       </button>
       {showCollapse && (
         <div>

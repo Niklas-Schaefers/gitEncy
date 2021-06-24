@@ -23,12 +23,12 @@ function Search(): JSX.Element {
                 "https://raw.githubusercontent.com/"
               )
               .replace("/blob", ""),
+            searchValue: searchValue,
           };
         });
         setSearchResults(transformed);
       });
   }
-
   const searchElements = searchResults.map((searchResult) => (
     <SearchResultsComponent
       key={searchResult.rawUrl}

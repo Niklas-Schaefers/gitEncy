@@ -22,6 +22,7 @@ export type TransformedResult = {
   ownerImageUrl: string;
   rawUrl: string;
   repoName: string;
+  searchValue: string;
 };
 
 export type SearchResults = {

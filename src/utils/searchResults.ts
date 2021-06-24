@@ -6,12 +6,14 @@ export const saveSearchResult = async ({
   ownerImageUrl,
   rawUrl,
   repoName,
+  searchValue,
 }: TransformedResult): Promise<void> => {
   await getSearchResultsCollection().insertOne({
     name,
     ownerImageUrl,
     rawUrl,
     repoName,
+    searchValue,
   });
 };
 
@@ -29,11 +31,13 @@ export const deleteSavedSearchResults = async ({
   ownerImageUrl,
   rawUrl,
   repoName,
+  searchValue,
 }: TransformedResult): Promise<void> => {
   await getSearchResultsCollection().deleteOne({
     name,
     ownerImageUrl,
     rawUrl,
     repoName,
+    searchValue,
   });
 };

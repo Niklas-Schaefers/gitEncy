@@ -5,7 +5,8 @@
   color: var(--text-color);
   border-radius: 1em;
   cursor: pointer;
-  padding: 0.5em 1.5em;
+  padding: 1em 3em;
+  text-align: left;
   font-size: 0.8em;
 }
 
@@ -39,7 +40,6 @@
 .searchResults {
   display: grid;
   padding: 1em;
-  align-items: center;
   font-size: 0.8em;
 }
 
