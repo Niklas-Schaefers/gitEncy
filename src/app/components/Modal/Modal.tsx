@@ -18,6 +18,8 @@ function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
       <div className={styles.modal}>
         <div className={styles.header}>
           {searchResults.name.substring(0, searchResults.name.lastIndexOf("."))}
+          <br />
+          {searchResults.repoName}
         </div>
         <div className={styles.code}>
           <CodeHighlighted code={code || ""} />
