@@ -1,0 +1,22 @@
+.button {
+  background-color: var(--tertiary-bg-color);
+  border-radius: 1em;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+  grid-column: 2;
+  font-size: 0.7em;
+  justify-self: right;
+}
+
+.name {
+  grid-column: 1;
+  font-size: 0.9em;
+}
+
+.results {
+  padding: 0.5em;
+  display: grid;
+  align-items: center;
+}
