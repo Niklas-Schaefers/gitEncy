@@ -17,7 +17,7 @@ function Search(): JSX.Element {
       <div className={styles.mainPinkBubble}>
         <MainPinkBubble />
       </div>
-      <Link className={styles.catLogo} to="/search">
+      <Link className={styles.catLogo} to="/login">
         <div>
           <CatLogo />
         </div>
