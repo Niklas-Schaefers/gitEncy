@@ -9,7 +9,7 @@ type GitHubItems = {
 };
 
 type Repository = {
-  full_name: string;
+  fullName: string;
   owner: Owner;
 };
 

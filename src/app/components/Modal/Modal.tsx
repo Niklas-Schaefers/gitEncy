@@ -12,7 +12,6 @@ type SearchResults = {
 
 function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
   const { data: code } = useFetch(searchResults.rawUrl);
-  console.log(searchResults);
 
   return (
     <div className={styles.modalWrapper}>

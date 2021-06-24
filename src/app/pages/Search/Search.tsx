@@ -15,7 +15,7 @@ function Search(): JSX.Element {
         const transformed: TransformedResult[] = data.items.map((item) => {
           return {
             name: item.name,
-            repoName: item.repository.full_name,
+            repoName: item.repository.fullName,
             ownerImageUrl: item.repository.owner.avatar_url,
             rawUrl: item.html_url
               .replace(
