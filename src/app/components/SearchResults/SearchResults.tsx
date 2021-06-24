@@ -6,10 +6,6 @@ import { SearchResults } from "../../../types";
 function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const userName = searchResult.repoName.substring(
-    0,
-    searchResult.repoName.lastIndexOf("/")
-  );
   const fileName = searchResult.name.substring(
     0,
     searchResult.name.lastIndexOf(".")
@@ -22,7 +18,6 @@ function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
     <div className={styles.searchResults}>
       <div className={styles.results}>
         <span className={styles.name}>
-          {userName} <br />
           {fileName}
           <br />
           {repoName}
