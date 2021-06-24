@@ -1,14 +1,19 @@
-.container {
+.wrapper {
   display: grid;
   height: 100vh;
+}
+.container {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
   justify-items: center;
   align-content: center;
   gap: 2em;
-  background-color: var(--primary-bg-color);
+  background-color: transparent;
 }
 
 .logo {
-  width: 30%;
+  width: 10em;
 }
 
 .loginButton {
@@ -25,4 +30,12 @@
 .form {
   display: grid;
   gap: 0.5em;
+}
+
+.mainBubble {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: -3;
+  padding-top: 8em;
+  max-width: 1200px;
 }
