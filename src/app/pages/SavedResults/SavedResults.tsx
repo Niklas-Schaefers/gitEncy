@@ -3,7 +3,7 @@ import { getSavedResultsFromMongoDB } from "../../../utils/api";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import styles from "./SavedResults.module.css";
-import SearchResultsComponent from "../../components/SearchResults/SearchResults";
+import SavedResultsComponent from "../../components/SavedResults/SavedResults";
 import { TransformedResult } from "../../../types";
 
 function SavedResults(): JSX.Element {
@@ -18,7 +18,7 @@ function SavedResults(): JSX.Element {
   }, []);
 
   const savedElements = searchResults.map((searchResult: TransformedResult) => (
-    <SearchResultsComponent
+    <SavedResultsComponent
       key={searchResult.rawUrl}
       searchResult={searchResult}
     />

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TransformedResult } from "../../../types";
 import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
 import { SearchResults } from "../../../types";
@@ -11,7 +10,11 @@ function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
     <div className={styles.searchResults}>
       <div className={styles.results}>
         <span className={styles.name}>
-          {searchResult.name.substring(0, searchResult.name.lastIndexOf("."))}
+          {searchResult.name.substring(0, searchResult.name.lastIndexOf("."))}{" "}
+          <br />
+          {searchResult.repoName.substring(
+            searchResult.repoName.indexOf("/") + 1
+          )}
           {showModal && (
             <Modal
               searchResults={searchResult}
