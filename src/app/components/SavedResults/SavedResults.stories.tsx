@@ -13,6 +13,7 @@ export const Default = (): JSX.Element => (
       ownerImageUrl: "string",
       rawUrl: "string",
       repoName: "string",
+      searchValue: "string",
     }}
   />
 );
