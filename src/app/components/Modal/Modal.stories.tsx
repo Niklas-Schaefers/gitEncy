@@ -10,7 +10,9 @@ export const Default = (): JSX.Element => (
   <Modal
     searchResults={{
       name: "Usestate.js",
-      rawUrl: "testet",
+      ownerImageUrl: "string",
+      rawUrl: "string",
+      repoName: "string",
     }}
     setShowModal={() => true}
   />

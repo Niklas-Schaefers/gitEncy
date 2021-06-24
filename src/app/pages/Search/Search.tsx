@@ -1,17 +1,9 @@
 import React, { useState } from "react";
+import { GitHubData, TransformedResult } from "../../../types";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
-import SearchResults from "../../components/SearchResults/SearchResults";
+import SearchResultsComponent from "../../components/SearchResults/SearchResults";
 import styles from "./Search.module.css";
-
-type GitHubData = {
-  items: [{ name: string; html_url: string }];
-};
-
-export type TransformedResult = {
-  name: string;
-  rawUrl: string;
-};
 
 function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
@@ -20,9 +12,11 @@ function Search(): JSX.Element {
     fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
       .then((data: GitHubData) => {
-        const transformed = data.items.map((item) => {
+        const transformed: TransformedResult[] = data.items.map((item) => {
           return {
             name: item.name,
+            repoName: item.repository.fullName,
+            ownerImageUrl: item.repository.owner.avatar_url,
             rawUrl: item.html_url
               .replace(
                 "https://github.com/",
@@ -36,7 +30,10 @@ function Search(): JSX.Element {
   }
 
   const searchElements = searchResults.map((searchResult) => (
-    <SearchResults key={searchResult.rawUrl} searchResult={searchResult} />
+    <SearchResultsComponent
+      key={searchResult.rawUrl}
+      searchResult={searchResult}
+    />
   ));
 
   return (

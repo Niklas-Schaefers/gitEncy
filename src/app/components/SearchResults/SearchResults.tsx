@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { TransformedResult } from "../../pages/Search/Search";
 import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
+import { SearchResults } from "../../../types";
 
-type SearchResults = {
-  searchResult: TransformedResult;
-};
-
-function SearchResults({ searchResult }: SearchResults): JSX.Element {
+function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
@@ -30,4 +26,4 @@ function SearchResults({ searchResult }: SearchResults): JSX.Element {
   );
 }
 
-export default SearchResults;
+export default SearchResultsComponent;

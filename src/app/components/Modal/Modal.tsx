@@ -1,10 +1,9 @@
 import React from "react";
 import useFetch from "../../usefetch";
-import { TransformedResult } from "../../pages/Search/Search";
 import styles from "./Modal.module.css";
 import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
 import { deleteSearchResult, postSearchResult } from "../../../utils/api";
-
+import { TransformedResult } from "../../../types";
 
 type SearchResults = {
   searchResults: TransformedResult;
@@ -19,6 +18,8 @@ function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
       <div className={styles.modal}>
         <div className={styles.header}>
           {searchResults.name.substring(0, searchResults.name.lastIndexOf("."))}
+          <br />
+          {searchResults.repoName}
         </div>
         <div className={styles.code}>
           <CodeHighlighted code={code || ""} />

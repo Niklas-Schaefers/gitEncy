@@ -1,16 +1,18 @@
 import React from "react";
-import SearchResults from "./SearchResults";
+import SearchResultsComponent from "./SearchResults";
 
 export default {
   title: "Component/Results",
-  component: SearchResults,
+  component: SearchResultsComponent,
 };
 
 export const Default = (): JSX.Element => (
-  <SearchResults
+  <SearchResultsComponent
     searchResult={{
       name: "Usestate.js",
-      rawUrl: "testet",
+      ownerImageUrl: "string",
+      rawUrl: "string",
+      repoName: "string",
     }}
   />
 );
