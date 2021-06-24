@@ -6,7 +6,7 @@
   cursor: pointer;
   padding: 0.5em 1.5em;
   grid-column: 2;
-  font-size: 0.7em;
+  font-size: 0.8em;
   justify-self: right;
 }
 
@@ -14,7 +14,7 @@
   grid-column: 1;
   display: grid;
   gap: 2em;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .results {
