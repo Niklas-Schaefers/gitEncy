@@ -1,5 +1,5 @@
 import React from "react";
-import useFetch from "../../usefetch";
+import useFetch from "../../useFetch";
 import styles from "./Modal.module.css";
 import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
 import { deleteSearchResult, postSearchResult } from "../../../utils/api";
