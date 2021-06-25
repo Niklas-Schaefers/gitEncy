@@ -9,7 +9,7 @@ type GitHubItems = {
 };
 
 type Repository = {
-  fullName: string;
+  full_name: string;
   owner: Owner;
 };
 
@@ -22,6 +22,7 @@ export type TransformedResult = {
   ownerImageUrl: string;
   rawUrl: string;
   repoName: string;
+  searchValue: string;
 };
 
 export type SearchResults = {

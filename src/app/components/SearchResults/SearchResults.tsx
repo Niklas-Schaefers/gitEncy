@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TransformedResult } from "../../../types";
 import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
 import { SearchResults } from "../../../types";
@@ -7,11 +6,21 @@ import { SearchResults } from "../../../types";
 function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
 
+  const fileName = searchResult.name.substring(
+    0,
+    searchResult.name.lastIndexOf(".")
+  );
+  const repoName = searchResult.repoName.substring(
+    searchResult.repoName.indexOf("/") + 1
+  );
+
   return (
     <div className={styles.searchResults}>
       <div className={styles.results}>
         <span className={styles.name}>
-          {searchResult.name.substring(0, searchResult.name.lastIndexOf("."))}
+          {fileName}
+          <br />
+          {repoName}
           {showModal && (
             <Modal
               searchResults={searchResult}

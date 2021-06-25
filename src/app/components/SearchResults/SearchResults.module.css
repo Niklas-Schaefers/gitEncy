@@ -1,21 +1,24 @@
 .button {
   background-color: var(--tertiary-bg-color);
-  border-radius: 5em;
+  border-radius: 1em;
   border: none;
   color: var(--text-color);
   cursor: pointer;
   padding: 0.5em 1.5em;
   grid-column: 2;
+  font-size: 0.8em;
   justify-self: right;
 }
 
 .name {
   grid-column: 1;
-  text-transform: uppercase;
+  display: grid;
+  gap: 2em;
+  font-size: 0.8em;
 }
 
 .results {
-  padding: 1em;
+  padding: 0.5em;
   display: grid;
   align-items: center;
 }

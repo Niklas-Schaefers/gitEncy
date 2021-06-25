@@ -1,0 +1,62 @@
+.toggle {
+  width: 100%;
+  background-color: transparent;
+  border: 0.1em solid var(--details-color);
+  color: var(--text-color);
+  border-radius: 1em;
+  cursor: pointer;
+  padding: 1em 3em;
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.button {
+  color: var(--text-color);
+  background-color: var(--tertiary-bg-color);
+  border-radius: 1em;
+  border: none;
+  cursor: pointer;
+  width: 10em;
+  padding: 0.5em 1.5em;
+  font-size: 0.8em;
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.toggle:active {
+  background-color: var(--details-color);
+  color: var(--primary-bg-color);
+}
+
+.ownerImageUrl {
+  width: 7em;
+  border-radius: 50%;
+  grid-column: 2;
+  grid-row: 1/5;
+  justify-self: right;
+  padding: 0.5em 2em 0 0;
+}
+
+.searchResults {
+  display: grid;
+  padding: 1em;
+  font-size: 0.8em;
+}
+
+.userName {
+  grid-column: 1;
+  grid-row: 1;
+}
+.fileName {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.repoName {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.collapse {
+  padding-bottom: 1em;
+}

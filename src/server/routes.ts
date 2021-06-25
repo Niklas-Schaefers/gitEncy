@@ -3,7 +3,7 @@ import {
   deleteSavedSearchResults,
   readSavedSearchResults,
   saveSearchResult,
-} from "../utils/searchresults";
+} from "../utils/searchResults";
 import { fetchGitHubSearchCodeWithUser } from "./gitHubSearch";
 
 const router = express.Router();

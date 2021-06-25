@@ -5,13 +5,20 @@ export async function postSearchResult({
   ownerImageUrl,
   rawUrl,
   repoName,
+  searchValue,
 }: TransformedResult): Promise<TransformedResult> {
   const response = await fetch("/api/searchresult", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, ownerImageUrl, rawUrl, repoName }),
+    body: JSON.stringify({
+      name,
+      ownerImageUrl,
+      rawUrl,
+      repoName,
+      searchValue,
+    }),
   });
   if (!response.ok) {
     const errorMessage = await response.text();
@@ -26,13 +33,20 @@ export async function deleteSearchResult({
   ownerImageUrl,
   rawUrl,
   repoName,
+  searchValue,
 }: TransformedResult): Promise<TransformedResult> {
   const response = await fetch("/api/searchresult", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, ownerImageUrl, rawUrl, repoName }),
+    body: JSON.stringify({
+      name,
+      ownerImageUrl,
+      rawUrl,
+      repoName,
+      searchValue,
+    }),
   });
   if (!response.ok) {
     const errorMessage = await response.text();

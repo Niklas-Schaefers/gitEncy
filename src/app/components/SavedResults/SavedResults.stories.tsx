@@ -1,20 +1,19 @@
 import React from "react";
-import Modal from "./Modal";
+import SavedResultsComponent from "./SavedResults";
 
 export default {
-  title: "Component/Modal",
-  component: Modal,
+  title: "Component/Results",
+  component: SavedResultsComponent,
 };
 
 export const Default = (): JSX.Element => (
-  <Modal
-    searchResults={{
+  <SavedResultsComponent
+    searchResult={{
       name: "Usestate.js",
       ownerImageUrl: "string",
       rawUrl: "string",
       repoName: "string",
       searchValue: "string",
     }}
-    setShowModal={() => true}
   />
 );

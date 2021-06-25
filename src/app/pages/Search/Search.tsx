@@ -15,7 +15,7 @@ function Search(): JSX.Element {
         const transformed: TransformedResult[] = data.items.map((item) => {
           return {
             name: item.name,
-            repoName: item.repository.fullName,
+            repoName: item.repository.full_name,
             ownerImageUrl: item.repository.owner.avatar_url,
             rawUrl: item.html_url
               .replace(
@@ -23,12 +23,12 @@ function Search(): JSX.Element {
                 "https://raw.githubusercontent.com/"
               )
               .replace("/blob", ""),
+            searchValue: searchValue,
           };
         });
         setSearchResults(transformed);
       });
   }
-
   const searchElements = searchResults.map((searchResult) => (
     <SearchResultsComponent
       key={searchResult.rawUrl}
