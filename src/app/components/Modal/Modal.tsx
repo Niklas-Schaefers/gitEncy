@@ -11,7 +11,7 @@ type SearchResults = {
 };
 
 function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
-  const { data: code } = useFetch(searchResults.rawUrl);
+  const { data: code } = useFetch(searchResults.rawUrl, false);
 
   const userName = searchResults.repoName.substring(
     0,
