@@ -4,6 +4,7 @@ import styles from "./Modal.module.css";
 import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
 import { deleteSearchResult, postSearchResult } from "../../../utils/api";
 import { TransformedResult } from "../../../types";
+import namingGitHubData from "../../../utils/namingGitHubData";
 
 type SearchResults = {
   searchResults: TransformedResult;
@@ -12,18 +13,7 @@ type SearchResults = {
 
 function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
   const { data: code } = useFetch(searchResults.rawUrl, false);
-
-  const userName = searchResults.repoName.substring(
-    0,
-    searchResults.repoName.lastIndexOf("/")
-  );
-  const fileName = searchResults.name.substring(
-    0,
-    searchResults.name.lastIndexOf(".")
-  );
-  const repoName = searchResults.repoName.substring(
-    searchResults.repoName.indexOf("/") + 1
-  );
+  const { userName, fileName, repoName } = namingGitHubData(searchResults);
 
   return (
     <div className={styles.modalWrapper}>
