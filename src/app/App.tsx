@@ -14,6 +14,7 @@ const routes: CustomRouteProps[] = [
   {
     path: "/login",
     Component: Login,
+    exact: true,
   },
   {
     path: "/savedresults",
