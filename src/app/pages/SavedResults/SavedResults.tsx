@@ -8,13 +8,23 @@ import { TransformedResult } from "../../../types";
 
 function SavedResults(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     getSavedResultsFromMongoDB();
     fetch(`/api/savedresults`)
       .then((response) => response.json())
-      .then((data) => {
-        return setSearchResults(data);
-      });
+      .then(
+        (data) => {
+          setIsLoaded(true);
+          setSearchResults(data);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
   }, []);
 
   const savedElements = searchResults.map((searchResult: TransformedResult) => (
@@ -24,13 +34,19 @@ function SavedResults(): JSX.Element {
     />
   ));
 
-  return (
-    <div className={styles.container}>
-      <HeaderBar />
-      <div className={styles.savedElements}>{savedElements}</div>
-      <FooterMenu />
-    </div>
-  );
+  if (error) {
+    return <>error...</>;
+  } else if (!isLoaded) {
+    return <>loading...</>;
+  } else {
+    return (
+      <div className={styles.container}>
+        <HeaderBar />
+        <div className={styles.savedElements}>{savedElements}</div>
+        <FooterMenu />
+      </div>
+    );
+  }
 }
 
 export default SavedResults;
