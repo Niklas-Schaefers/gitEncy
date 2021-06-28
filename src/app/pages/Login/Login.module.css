@@ -23,13 +23,10 @@
   font-size: 1em;
   color: var(--text-color);
   cursor: pointer;
-  padding: 0.3em;
-  width: 100%;
-}
-
-.form {
-  display: grid;
-  gap: 0.5em;
+  padding: 1em;
+  width: 15em;
+  text-align: center;
+  text-decoration: none;
 }
 
 .mainBubble {
