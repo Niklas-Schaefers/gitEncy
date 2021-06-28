@@ -24,3 +24,6 @@ Content-Type: application/json
 
 {"name": "Test1",
 "rawUrl": "www.test.de"}
+
+### GithubLogin
+GET  {{baseUrl}}/api/githublogin
