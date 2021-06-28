@@ -9,7 +9,7 @@ import { TransformedResult } from "../../../types";
 function SavedResults(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getSavedResultsFromMongoDB();
@@ -17,11 +17,11 @@ function SavedResults(): JSX.Element {
       .then((response) => response.json())
       .then(
         (data) => {
-          setIsLoaded(true);
+          setIsLoading(true);
           setSearchResults(data);
         },
         (error) => {
-          setIsLoaded(true);
+          setIsLoading(true);
           setError(error);
         }
       );
@@ -36,13 +36,15 @@ function SavedResults(): JSX.Element {
 
   if (error) {
     return <>error...</>;
-  } else if (!isLoaded) {
-    return <>loading...</>;
   } else {
     return (
       <div className={styles.container}>
         <HeaderBar />
-        <div className={styles.savedElements}>{savedElements}</div>
+        {!isLoading ? (
+          <div className={styles.loadingSpinner}></div>
+        ) : (
+          <div className={styles.savedElements}>{savedElements}</div>
+        )}
         <FooterMenu />
       </div>
     );

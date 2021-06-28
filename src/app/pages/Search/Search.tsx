@@ -8,6 +8,7 @@ import styles from "./Search.module.css";
 function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   function fetchGitHubData(searchValue: string, filterValue: string) {
     setIsLoading(true);
@@ -30,6 +31,7 @@ function Search(): JSX.Element {
         });
         setSearchResults(transformed);
         setIsLoading(false);
+        setError(error);
       });
   }
   const searchElements = searchResults.map((searchResult) => (
@@ -39,17 +41,21 @@ function Search(): JSX.Element {
     />
   ));
 
-  return (
-    <div className={styles.container}>
-      <HeaderSearch onSubmit={fetchGitHubData} />
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        <div className={styles.searchElements}>{searchElements}</div>
-      )}
-      <FooterMenu />
-    </div>
-  );
+  if (error) {
+    return <>error...</>;
+  } else {
+    return (
+      <div className={styles.container}>
+        <HeaderSearch onSubmit={fetchGitHubData} />
+        {isLoading ? (
+          <div className={styles.loadingSpinner}></div>
+        ) : (
+          <div className={styles.searchElements}>{searchElements}</div>
+        )}
+        <FooterMenu />
+      </div>
+    );
+  }
 }
 
 export default Search;

@@ -18,3 +18,27 @@
 .searchElements::-webkit-scrollbar {
   display: none;
 }
+
+.loadingSpinner {
+  display: inline-block;
+  align-self: center;
+  justify-self: center;
+  width: 10em;
+  height: 10em;
+  border: 0.12em solid var(--details-color, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-bg-color);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
