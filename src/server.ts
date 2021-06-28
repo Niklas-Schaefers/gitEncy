@@ -8,12 +8,15 @@ import { connectDatabase } from "./utils/database";
 import session from "express-session";
 import qs from "querystring";
 import randomString from "randomstring";
+import axios from "axios";
 
 const { PORT = 6000 } = process.env;
 const redirect_uri = process.env.HOST + "/redirect";
 
 const app = express();
 const csrfString = randomString.generate();
+
+app.use(express.json());
 
 app.use(
   session({
@@ -64,8 +67,6 @@ app.all("/redirect", (req, res) => {
     res.redirect("/");
   }
 });
-
-app.use(express.json());
 
 app.use("/api", router);
 
