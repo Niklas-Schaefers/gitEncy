@@ -10,7 +10,7 @@
   top: 10%;
   left: 0%;
   right: 0%;
-  width: 85%;
+  max-width: 54em;
   margin: 0 auto;
   height: 80%;
 }
