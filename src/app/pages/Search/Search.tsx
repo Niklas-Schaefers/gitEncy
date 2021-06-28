@@ -14,25 +14,31 @@ function Search(): JSX.Element {
     setIsLoading(true);
     fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
-      .then((data: GitHubData) => {
-        const transformed: TransformedResult[] = data.items.map((item) => {
-          return {
-            name: item.name,
-            repoName: item.repository.full_name,
-            ownerImageUrl: item.repository.owner.avatar_url,
-            rawUrl: item.html_url
-              .replace(
-                "https://github.com/",
-                "https://raw.githubusercontent.com/"
-              )
-              .replace("/blob", ""),
-            searchValue: searchValue,
-          };
-        });
-        setSearchResults(transformed);
-        setIsLoading(false);
-        setError(error);
-      });
+      .then(
+        (data: GitHubData) => {
+          const transformed: TransformedResult[] = data.items.map((item) => {
+            return {
+              name: item.name,
+              repoName: item.repository.full_name,
+              ownerImageUrl: item.repository.owner.avatar_url,
+              rawUrl: item.html_url
+                .replace(
+                  "https://github.com/",
+                  "https://raw.githubusercontent.com/"
+                )
+                .replace("/blob", ""),
+              searchValue: searchValue,
+            };
+          });
+          setSearchResults(transformed);
+          setIsLoading(false);
+          setError(error);
+        },
+        (error) => {
+          setIsLoading(true);
+          setError(error);
+        }
+      );
   }
   const searchElements = searchResults.map((searchResult) => (
     <SearchResultsComponent
