@@ -12,41 +12,55 @@ type SearchResults = {
 };
 
 function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
-  const { data: code } = useFetch(searchResults.rawUrl, false);
+  const { data: code, isLoading, errorMessage } = useFetch(
+    searchResults.rawUrl,
+    false
+  );
   const { userName, fileName, repoName } = namingGitHubData(searchResults);
 
-  return (
-    <div className={styles.modalWrapper}>
-      <div className={styles.modal}>
-        <div className={styles.header}>
-          {userName} {" - "} {fileName} {" - "} {repoName}
+  if (errorMessage) {
+    return <>error...</>;
+  } else {
+    return (
+      <div className={styles.modalWrapper}>
+        <div className={styles.modal}>
+          <div className={styles.header}>
+            {userName} {" - "} {fileName} {" - "} {repoName}
+          </div>
+
+          {isLoading ? (
+            <div className={styles.loadingSpinnerWrapper}>
+              <div className={styles.loadingSpinner}></div>
+            </div>
+          ) : (
+            <div className={styles.code}>
+              <CodeHighlighted code={code || ""} />
+            </div>
+          )}
+          <div className={styles.modal__buttons}>
+            <button
+              className={styles.modal__saveButton}
+              onClick={() => postSearchResult(searchResults)}
+            >
+              Save
+            </button>
+            <button
+              className={styles.modal__saveButton}
+              onClick={() => deleteSearchResult(searchResults)}
+            >
+              Delete
+            </button>
+            <button
+              className={styles.modal__backButton}
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
         </div>
-        <div className={styles.code}>
-          <CodeHighlighted code={code || ""} />
-        </div>
-        <div className={styles.modal__buttons}>
-          <button
-            className={styles.modal__saveButton}
-            onClick={() => postSearchResult(searchResults)}
-          >
-            Save
-          </button>
-          <button
-            className={styles.modal__saveButton}
-            onClick={() => deleteSearchResult(searchResults)}
-          >
-            Delete
-          </button>
-          <button
-            className={styles.modal__backButton}
-            onClick={() => setShowModal(false)}
-          >
-            Close
-          </button>
-        </div>
+        <div />
       </div>
-      <div />
-    </div>
-  );
+    );
+  }
 }
 export default Modal;
