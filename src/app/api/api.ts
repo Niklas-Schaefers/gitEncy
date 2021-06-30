@@ -1,4 +1,4 @@
-import { TransformedResult } from "../types";
+import { TransformedResult } from "../../types";
 
 export async function postSearchResult({
   name,
