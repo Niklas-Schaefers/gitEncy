@@ -34,7 +34,7 @@ export async function deleteSearchResult({
   rawUrl,
   repoName,
   searchValue,
-}: TransformedResult): Promise<TransformedResult> {
+}: TransformedResult): Promise<void> {
   const response = await fetch("/api/searchresult", {
     method: "DELETE",
     headers: {
@@ -52,23 +52,4 @@ export async function deleteSearchResult({
     const errorMessage = await response.text();
     throw errorMessage;
   }
-  const result: TransformedResult = await response.json();
-  return result;
-}
-
-export async function getSavedResultsFromMongoDB(): Promise<
-  TransformedResult[]
-> {
-  const response = await fetch("/api/savedresults", {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  if (!response.ok) {
-    const errorMessage = await response.text();
-    throw errorMessage;
-  }
-  const result: TransformedResult[] = await response.json();
-  return result;
 }
