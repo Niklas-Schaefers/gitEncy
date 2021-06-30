@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import Modal from "../Modal/Modal";
 import styles from "./SavedResults.module.css";
-import { SearchResults } from "../../../types";
+import { TransformedResult } from "../../../types";
 import namingGitHubData from "../../../utils/namingGitHubData";
 
-function SavedResultsComponent({ searchResult }: SearchResults): JSX.Element {
+type SavedResultsComponentProps = {
+  searchResult: TransformedResult;
+  fetchData: () => void;
+};
+
+function SavedResultsComponent({
+  searchResult,
+  fetchData,
+}: SavedResultsComponentProps): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showCollapse, setShowCollapse] = useState(false);
   const { userName, fileName, repoName } = namingGitHubData(searchResult);
@@ -32,7 +40,9 @@ function SavedResultsComponent({ searchResult }: SearchResults): JSX.Element {
               {showModal && (
                 <Modal
                   searchResults={searchResult}
+                  isSaved
                   setShowModal={setShowModal}
+                  fetchData={fetchData}
                 ></Modal>
               )}
             </span>
