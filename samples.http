@@ -26,4 +26,11 @@ Content-Type: application/json
 "rawUrl": "www.test.de"}
 
 ### GithubLogin
-GET  {{baseUrl}}/api/githublogin
+GET  {{baseUrl}}/oauth/githublogin
+
+### Get Token
+POST  {{baseUrl}}/oauth/github/access_token HTTP/1.1
+Content-Type: application/json
+
+
+

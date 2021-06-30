@@ -5,75 +5,36 @@ import path from "path";
 import express from "express";
 import router from "./server/routes";
 import { connectDatabase } from "./utils/database";
-import fetch from "node-fetch";
-import cookieSession from "cookie-session";
+import { getGitHubUserByAccessToken } from "./utils/auth";
+
+const client_id: string | undefined = process.env.CLIENT_ID;
+const client_secret: string | undefined = process.env.CLIENT_SECRET;
+const redircet_uri: string | undefined = process.env.REDIRCET_URI;
 
 const app = express();
-app.use(
-  cookieSession({
-    secret: process.env.COOKIE_SECRET,
-  })
-);
-
-const client_id = process.env.CLIENT_ID;
-const client_secret = process.env.CLIENT_SECRET;
-const redircet_uri = process.env.REDIRCET_URI;
-
-console.log({ client_id, client_secret });
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello GitHub auth");
-});
-
-app.get("/githublogin", (_req, res) => {
+app.get("/oauth/githublogin", (_req, res) => {
   res.redirect(
     `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${redircet_uri}`
   );
 });
 
-async function getAccessToken({ code, client_id, client_secret }) {
-  const res = await fetch("https://github.com/login/oauth/access_token", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
+app.post("/oauth/github/login", async (_req, res) => {
+  const { code } = _req.body;
+
+  if (!code) {
+    return res.status(400).send("no code");
+  } else {
+    const user = await getGitHubUserByAccessToken({
+      code,
       client_id,
       client_secret,
-      code,
-    }),
-  });
-  const data = await res.json();
-  const params = new URLSearchParams(data);
-  return params.get("access_token");
-}
-async function fetchGitHubUser(token) {
-  const request = await fetch("https://api.github.com/user", {
-    headers: {
-      Authorization: "token " + token,
-    },
-  });
-  return await request.json();
-}
-
-app.get("/login/github/callback", async (req, res) => {
-  const code = req.query.code;
-  const access_token = await getAccessToken({ code, client_id, client_secret });
-  const user = await fetchGitHubUser(access_token);
-  if (user) {
-    req.session.access_token = access_token;
-    req.session.githubId = user.id;
-    res.redirect("/admin");
-  } else {
-    res.send("Login did not succeed!");
+    });
+    console.log(user);
+    return res.status(200).json(user);
   }
-});
-
-app.get("/logout", (req, res) => {
-  if (req.session) req.session = null;
-  res.redirect("/");
 });
 
 app.use("/api", router);
