@@ -6,12 +6,19 @@ import { deleteSearchResult, postSearchResult } from "../../../utils/api";
 import { TransformedResult } from "../../../types";
 import namingGitHubData from "../../../utils/namingGitHubData";
 
-type SearchResults = {
+type ModalProps = {
   searchResults: TransformedResult;
   setShowModal: (value: boolean) => void;
+  isSaved: boolean;
+  fetchData?: () => void;
 };
 
-function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
+function Modal({
+  searchResults,
+  setShowModal,
+  isSaved,
+  fetchData,
+}: ModalProps): JSX.Element {
   const { data: code, isLoading, errorMessage } = useFetch(
     searchResults.rawUrl,
     false
@@ -19,7 +26,7 @@ function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
   const { userName, fileName, repoName } = namingGitHubData(searchResults);
 
   if (errorMessage) {
-    return <>error...</>;
+    return <>{errorMessage}</>;
   } else {
     return (
       <div className={styles.modalWrapper}>
@@ -38,18 +45,29 @@ function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
             </div>
           )}
           <div className={styles.modal__buttons}>
-            <button
-              className={styles.modal__saveButton}
-              onClick={() => postSearchResult(searchResults)}
-            >
-              Save
-            </button>
-            <button
-              className={styles.modal__saveButton}
-              onClick={() => deleteSearchResult(searchResults)}
-            >
-              Delete
-            </button>
+            {!isSaved && (
+              <button
+                className={styles.modal__saveButton}
+                onClick={() => {
+                  postSearchResult(searchResults);
+                  setShowModal(false);
+                }}
+              >
+                Save
+              </button>
+            )}
+            {isSaved && (
+              <button
+                className={styles.modal__saveButton}
+                onClick={async () => {
+                  await deleteSearchResult(searchResults);
+                  fetchData?.();
+                  setShowModal(false);
+                }}
+              >
+                Delete
+              </button>
+            )}
             <button
               className={styles.modal__backButton}
               onClick={() => setShowModal(false)}

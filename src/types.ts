@@ -24,7 +24,3 @@ export type TransformedResult = {
   repoName: string;
   searchValue: string;
 };
-
-export type SearchResults = {
-  searchResult: TransformedResult;
-};
