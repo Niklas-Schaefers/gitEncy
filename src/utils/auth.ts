@@ -32,7 +32,6 @@ async function getGitHubUser(access_token: string): Promise<User> {
       Authorization: `Bearer ${access_token}`,
     },
   });
-  console.log(access_token);
   const user = await response.json();
 
   return user;

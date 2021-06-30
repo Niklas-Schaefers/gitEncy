@@ -32,7 +32,6 @@ app.post("/oauth/github/login", async (_req, res) => {
       client_id,
       client_secret,
     });
-    console.log(user);
     return res.status(200).json(user);
   }
 });

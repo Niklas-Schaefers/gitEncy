@@ -16,8 +16,6 @@ type AuthProps = {
 export function AuthProvider({ children }: AuthProps): JSX.Element {
   const [user, setUser] = useState<User>();
 
-  console.log(user);
-
   const loginWithCode = useCallback(
     (code: string) => {
       if (user) {
@@ -43,7 +41,6 @@ export function AuthProvider({ children }: AuthProps): JSX.Element {
 
   return (
     <AuthContext.Provider value={{ user, loginWithCode, logout }}>
-      {console.log(user)}
       {children}
     </AuthContext.Provider>
   );

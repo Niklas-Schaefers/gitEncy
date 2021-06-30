@@ -9,7 +9,6 @@ function GithubCallback(): JSX.Element {
 
   useEffect(() => {
     if (code) {
-      console.log(code);
       loginWithCode(code);
     }
   }, [code, loginWithCode]);
