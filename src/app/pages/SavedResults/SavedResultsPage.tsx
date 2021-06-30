@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { getSavedResultsFromMongoDB } from "../../../utils/api";
+import React, { useCallback, useEffect, useState } from "react";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderBar from "../../components/HeaderBar/HeaderBar";
-import styles from "./SavedResults.module.css";
+import styles from "./SavedResultsPage.module.css";
 import SavedResultsComponent from "../../components/SavedResults/SavedResults";
 import { TransformedResult } from "../../../types";
 
-function SavedResults(): JSX.Element {
+function SavedResultsPage(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    getSavedResultsFromMongoDB();
+  const fetchData = useCallback(() => {
     fetch(`/api/savedresults`)
       .then((response) => response.json())
       .then(
@@ -27,10 +25,15 @@ function SavedResults(): JSX.Element {
       );
   }, []);
 
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   const savedElements = searchResults.map((searchResult: TransformedResult) => (
     <SavedResultsComponent
       key={searchResult.rawUrl}
       searchResult={searchResult}
+      fetchData={fetchData}
     />
   ));
 
@@ -51,4 +54,4 @@ function SavedResults(): JSX.Element {
   }
 }
 
-export default SavedResults;
+export default SavedResultsPage;

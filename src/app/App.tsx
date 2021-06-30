@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
-import SavedResults from "./pages/SavedResults/SavedResults";
+import SavedResultsPage from "./pages/SavedResults/SavedResultsPage";
 import Login from "./pages/Login/Login";
 
 type CustomRouteProps = RouteProps & {
@@ -18,7 +18,7 @@ const routes: CustomRouteProps[] = [
   },
   {
     path: "/savedresults",
-    Component: SavedResults,
+    Component: SavedResultsPage,
   },
   {
     path: "/search",
