@@ -3,60 +3,82 @@ import useFetch from "../../api/useFetch";
 import styles from "./Modal.module.css";
 import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
 import { TransformedResult } from "../../../types";
+import namingGitHubData from "../../../utils/namingGitHubData";
 import { deleteSearchResult, postSearchResult } from "../../api/api";
 
-type SearchResults = {
+type ModalProps = {
   searchResults: TransformedResult;
   setShowModal: (value: boolean) => void;
+  isSaved: boolean;
+  fetchData?: () => void;
 };
 
-function Modal({ searchResults, setShowModal }: SearchResults): JSX.Element {
-  const { data: code } = useFetch(searchResults.rawUrl);
+function Modal({
+  searchResults,
+  setShowModal,
+  isSaved,
+  fetchData,
+}: ModalProps): JSX.Element {
+  const { data: code, isLoading, errorMessage } = useFetch(
+    searchResults.rawUrl,
+    false
+  );
+  const { userName, fileName, repoName } = namingGitHubData(searchResults);
 
-  const userName = searchResults.repoName.substring(
-    0,
-    searchResults.repoName.lastIndexOf("/")
-  );
-  const fileName = searchResults.name.substring(
-    0,
-    searchResults.name.lastIndexOf(".")
-  );
-  const repoName = searchResults.repoName.substring(
-    searchResults.repoName.indexOf("/") + 1
-  );
+  if (errorMessage) {
+    return <>{errorMessage}</>;
+  } else {
+    return (
+      <div className={styles.modalWrapper}>
+        <div className={styles.modal}>
+          <div className={styles.header}>
+            {userName} {" - "} {fileName} {" - "} {repoName}
+          </div>
 
-  return (
-    <div className={styles.modalWrapper}>
-      <div className={styles.modal}>
-        <div className={styles.header}>
-          {userName} {" - "} {fileName} {" - "} {repoName}
+          {isLoading ? (
+            <div className={styles.loadingSpinnerWrapper}>
+              <div className={styles.loadingSpinner}></div>
+            </div>
+          ) : (
+            <div className={styles.code}>
+              <CodeHighlighted code={code || ""} />
+            </div>
+          )}
+          <div className={styles.modal__buttons}>
+            {!isSaved && (
+              <button
+                className={styles.modal__saveButton}
+                onClick={() => {
+                  postSearchResult(searchResults);
+                  setShowModal(false);
+                }}
+              >
+                Save
+              </button>
+            )}
+            {isSaved && (
+              <button
+                className={styles.modal__saveButton}
+                onClick={async () => {
+                  await deleteSearchResult(searchResults);
+                  fetchData?.();
+                  setShowModal(false);
+                }}
+              >
+                Delete
+              </button>
+            )}
+            <button
+              className={styles.modal__backButton}
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
         </div>
-        <div className={styles.code}>
-          <CodeHighlighted code={code || ""} />
-        </div>
-        <div className={styles.modal__buttons}>
-          <button
-            className={styles.modal__saveButton}
-            onClick={() => postSearchResult(searchResults)}
-          >
-            Save
-          </button>
-          <button
-            className={styles.modal__saveButton}
-            onClick={() => deleteSearchResult(searchResults)}
-          >
-            Delete
-          </button>
-          <button
-            className={styles.modal__backButton}
-            onClick={() => setShowModal(false)}
-          >
-            Close
-          </button>
-        </div>
+        <div />
       </div>
-      <div />
-    </div>
-  );
+    );
+  }
 }
 export default Modal;

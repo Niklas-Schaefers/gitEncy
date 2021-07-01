@@ -16,5 +16,6 @@ export const Default = (): JSX.Element => (
       searchValue: "string",
     }}
     setShowModal={() => true}
+    isSaved={true}
   />
 );

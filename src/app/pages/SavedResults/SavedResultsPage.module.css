@@ -5,17 +5,16 @@
   row-gap: 1em;
 }
 
-.searchElements {
+.savedElements {
   color: var(--text-color);
+  padding: 0 1em 0 1em;
   overflow: scroll;
-  text-align: justify;
   display: flex;
   flex-flow: column;
   word-wrap: break-word;
-  padding: 0 1em 0 1em;
 }
 
-.searchElements::-webkit-scrollbar {
+.savedElements::-webkit-scrollbar {
   display: none;
 }
 

@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
-import SavedResults from "./pages/SavedResults/SavedResults";
+import SavedResultsPage from "./pages/SavedResults/SavedResultsPage";
 import Login from "./pages/Login/Login";
 import GithubCallback from "./auth/GithubCallback";
 import Profile from "./pages/Profile/Profile";
@@ -28,7 +28,7 @@ const routes: CustomRouteProps[] = [
   },
   {
     path: "/savedresults",
-    Component: SavedResults,
+    Component: SavedResultsPage,
   },
   {
     path: "/search",

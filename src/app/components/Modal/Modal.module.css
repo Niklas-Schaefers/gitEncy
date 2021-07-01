@@ -10,7 +10,7 @@
   top: 10%;
   left: 0%;
   right: 0%;
-  width: 85%;
+  max-width: 54em;
   margin: 0 auto;
   height: 80%;
 }
@@ -75,4 +75,33 @@
   border-top-right-radius: 2em;
   justify-content: center;
   align-items: center;
+}
+
+.loadingSpinnerWrapper {
+  display: grid;
+  height: 100%;
+}
+
+.loadingSpinner {
+  display: inline-block;
+  align-self: center;
+  justify-self: center;
+  width: 15em;
+  height: 15em;
+  border: 0.12em solid var(--tertiary-bg-color, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--text-color);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }

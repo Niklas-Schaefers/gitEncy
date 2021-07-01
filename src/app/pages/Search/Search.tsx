@@ -7,8 +7,11 @@ import styles from "./Search.module.css";
 
 function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   function fetchGitHubData(searchValue: string, filterValue: string) {
+    setIsLoading(true);
     fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
       .then((data: GitHubData) => {
@@ -27,6 +30,10 @@ function Search(): JSX.Element {
           };
         });
         setSearchResults(transformed);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setError(e);
       });
   }
   const searchElements = searchResults.map((searchResult) => (
@@ -36,13 +43,21 @@ function Search(): JSX.Element {
     />
   ));
 
-  return (
-    <div className={styles.container}>
-      <HeaderSearch onSubmit={fetchGitHubData} />
-      <div className={styles.searchElements}>{searchElements}</div>
-      <FooterMenu />
-    </div>
-  );
+  if (error) {
+    return <div>error...</div>;
+  } else {
+    return (
+      <div className={styles.container}>
+        <HeaderSearch onSubmit={fetchGitHubData} />
+        {isLoading ? (
+          <div className={styles.loadingSpinner}></div>
+        ) : (
+          <div className={styles.searchElements}>{searchElements}</div>
+        )}
+        <FooterMenu />
+      </div>
+    );
+  }
 }
 
 export default Search;

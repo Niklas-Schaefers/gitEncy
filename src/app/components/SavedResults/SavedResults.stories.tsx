@@ -15,5 +15,6 @@ export const Default = (): JSX.Element => (
       repoName: "string",
       searchValue: "string",
     }}
+    fetchData={() => true}
   />
 );

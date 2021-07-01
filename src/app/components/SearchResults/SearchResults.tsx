@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
-import { SearchResults } from "../../../types";
+import namingGitHubData from "../../../utils/namingGitHubData";
+import { TransformedResult } from "../../../types";
 
-function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
+type SearchResultsComponentProps = {
+  searchResult: TransformedResult;
+};
+
+function SearchResultsComponent({
+  searchResult,
+}: SearchResultsComponentProps): JSX.Element {
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const fileName = searchResult.name.substring(
-    0,
-    searchResult.name.lastIndexOf(".")
-  );
-  const repoName = searchResult.repoName.substring(
-    searchResult.repoName.indexOf("/") + 1
-  );
+  const { fileName, repoName } = namingGitHubData(searchResult);
 
   return (
     <div className={styles.searchResults}>
@@ -24,6 +25,7 @@ function SearchResultsComponent({ searchResult }: SearchResults): JSX.Element {
           {showModal && (
             <Modal
               searchResults={searchResult}
+              isSaved={false}
               setShowModal={setShowModal}
             ></Modal>
           )}
