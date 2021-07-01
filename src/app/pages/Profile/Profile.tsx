@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth, useUser } from "../../auth/AuthContext";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
+import LogoutIcon from "../../components/Icons/LogoutIcon";
 import styles from "./Profile.module.css";
 
 function Profile(): JSX.Element {
@@ -15,7 +16,9 @@ function Profile(): JSX.Element {
   return (
     <div className={styles.container}>
       <button className={styles.logoutButton} onClick={LogOutandMessage}>
-        Logout
+        <div className={styles.logoutIcon}>
+          <LogoutIcon />
+        </div>
       </button>
       <h1 className={styles.userName}>{user.name}</h1>
       <img className={styles.userPhoto} src={user.avatar_url} alt="" />

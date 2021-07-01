@@ -3,6 +3,8 @@ import Modal from "../Modal/Modal";
 import styles from "./SavedResults.module.css";
 import { TransformedResult } from "../../../types";
 import namingGitHubData from "../../../utils/namingGitHubData";
+import CheckCodeIcon from "../Icons/CheckCodeIcon";
+import FolderIcon from "../Icons/FolderIcon";
 
 type SavedResultsComponentProps = {
   searchResult: TransformedResult;
@@ -23,6 +25,7 @@ function SavedResultsComponent({
         onClick={() => setShowCollapse(!showCollapse)}
         className={styles.toggle}
       >
+        <FolderIcon />
         {searchResult.searchValue.toUpperCase()} {" in "}
         {repoName} {" by "} {userName}
       </button>
@@ -51,6 +54,7 @@ function SavedResultsComponent({
               onClick={() => setShowModal(true)}
             >
               Check Code
+              <CheckCodeIcon />
             </button>
           </div>
         </div>

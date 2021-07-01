@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GitHubData, TransformedResult } from "../../../types";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
+import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
 import SearchResultsComponent from "../../components/SearchResults/SearchResults";
 import styles from "./Search.module.css";
 
@@ -44,7 +45,20 @@ function Search(): JSX.Element {
   ));
 
   if (error) {
-    return <div>error...</div>;
+    return (
+      <div className={styles.errorState}>
+        <ErrorCatIcon />
+        <div>Ups... User or code not found, try again</div>
+        <button
+          onClick={() => {
+            setError(null);
+            setIsLoading(false);
+          }}
+        >
+          Try again
+        </button>
+      </div>
+    );
   } else {
     return (
       <div className={styles.container}>
