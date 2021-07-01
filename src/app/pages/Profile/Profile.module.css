@@ -24,10 +24,11 @@
 
 .logoutButton {
   background-color: var(--tertiary-bg-color);
-  border-bottom-left-radius: 5em;
+  border-bottom-left-radius: 2em;
   border: none;
-  width: 10em;
+  width: 4em;
   justify-self: right;
+  justify-content: right;
   font-size: 1em;
   color: var(--text-color);
   cursor: pointer;

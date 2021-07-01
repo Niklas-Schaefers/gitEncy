@@ -40,6 +40,7 @@
 }
 
 .submitButton {
+  display: flex;
   background-color: var(--tertiary-bg-color);
   border-radius: 5em;
   border: none;
@@ -47,4 +48,7 @@
   color: var(--text-color);
   cursor: pointer;
   padding: 0.3em;
+  justify-content: center;
+  gap: 0.7em;
+  align-items: center;
 }

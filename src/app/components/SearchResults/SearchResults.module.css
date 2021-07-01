@@ -2,12 +2,16 @@
   background-color: var(--tertiary-bg-color);
   border-radius: 1em;
   border: none;
+  display: flex;
   color: var(--text-color);
   cursor: pointer;
   padding: 0.5em 1.5em;
   grid-column: 2;
   font-size: 0.8em;
   justify-self: right;
+  justify-content: center;
+  gap: 0.7em;
+  align-items: center;
 }
 
 .name {
