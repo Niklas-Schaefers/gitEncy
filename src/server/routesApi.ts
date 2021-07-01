@@ -6,9 +6,9 @@ import {
 } from "../utils/searchResults";
 import { fetchGitHubSearchCodeWithUser } from "./gitHubSearch";
 
-const router = express.Router();
+const routerApi = express.Router();
 
-router.get("/search", async (req, res, next) => {
+routerApi.get("/search", async (req, res, next) => {
   try {
     const { query } = req;
     if (!query.code) {
@@ -30,23 +30,23 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
-router.post("/searchresult", async (_req, res) => {
-  await saveSearchResult(_req.body);
+routerApi.post("/searchresult", async (req, res) => {
+  await saveSearchResult(req.body);
   res.send("Searchresult saved in db");
 });
 
-router.get("/savedresults", async (_req, res) => {
+routerApi.get("/savedresults", async (_req, res) => {
   const searchResults = await readSavedSearchResults();
   res.json(searchResults);
 });
 
-router.delete("/searchresult", async (_req, res) => {
-  await deleteSavedSearchResults(_req.body);
+routerApi.delete("/searchresult", async (req, res) => {
+  await deleteSavedSearchResults(req.body);
   res.send("Searchresult deleted from db");
 });
 
-router.get("/githublogin", async (_req, res) => {
+routerApi.get("/githublogin", async (_req, res) => {
   res.send("test");
 });
 
-export default router;
+export default routerApi;
