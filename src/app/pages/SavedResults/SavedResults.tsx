@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getSavedResultsFromMongoDB } from "../../../utils/api";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import styles from "./SavedResults.module.css";
 import SavedResultsComponent from "../../components/SavedResults/SavedResults";
 import { TransformedResult } from "../../../types";
+import { getSavedResultsFromMongoDB } from "../../api/api";
 
 function SavedResults(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);

@@ -17,7 +17,6 @@ export async function fetchGitHubSearchCodeWithUser(
   const response = await fetch(url);
   if (!response.ok) {
     const errorResult: ErrorResult = await response.json();
-    console.log(errorResult);
     throw {
       message: errorResult.message,
     };

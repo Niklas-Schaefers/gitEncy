@@ -28,3 +28,15 @@ export type TransformedResult = {
 export type SearchResults = {
   searchResult: TransformedResult;
 };
+
+export type User = {
+  name: string;
+  login: string;
+  avatar_url: string;
+};
+
+export type AccessTokenRequest = {
+  code: string;
+  client_id: string | undefined;
+  client_secret: string | undefined;
+};

@@ -45,4 +45,8 @@ router.delete("/searchresult", async (_req, res) => {
   res.send("Searchresult deleted from db");
 });
 
+router.get("/githublogin", async (_req, res) => {
+  res.send("test");
+});
+
 export default router;

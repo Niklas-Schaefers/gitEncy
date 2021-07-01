@@ -1,9 +1,9 @@
 import React from "react";
-import useFetch from "../../useFetch";
+import useFetch from "../../api/useFetch";
 import styles from "./Modal.module.css";
 import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
-import { deleteSearchResult, postSearchResult } from "../../../utils/api";
 import { TransformedResult } from "../../../types";
+import { deleteSearchResult, postSearchResult } from "../../api/api";
 
 type SearchResults = {
   searchResults: TransformedResult;

@@ -1,0 +1,34 @@
+.container {
+  display: grid;
+  height: 100vh;
+  row-gap: 1em;
+  margin: 0;
+}
+
+.userName {
+  color: var(--text-color);
+  text-align: center;
+  align-self: center;
+}
+.userPhoto {
+  border-radius: 50%;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerMenu {
+  align-self: end;
+}
+
+.logoutButton {
+  background-color: var(--tertiary-bg-color);
+  border-bottom-left-radius: 5em;
+  border: none;
+  width: 10em;
+  justify-self: right;
+  font-size: 1em;
+  color: var(--text-color);
+  cursor: pointer;
+}
