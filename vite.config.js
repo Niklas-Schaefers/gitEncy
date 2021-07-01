@@ -14,6 +14,10 @@ export default defineConfig({
         target: `http://localhost:${BACKEND_PORT}`,
         changeOrigin: true,
       },
+      "/oauth": {
+        target: `http://localhost:${BACKEND_PORT}`,
+        changeOrigin: true,
+      },
     },
   },
   build: {

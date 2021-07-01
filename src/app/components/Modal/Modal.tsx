@@ -1,10 +1,10 @@
 import React from "react";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../api/useFetch";
 import styles from "./Modal.module.css";
 import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
-import { deleteSearchResult, postSearchResult } from "../../../utils/api";
 import { TransformedResult } from "../../../types";
 import namingGitHubData from "../../../utils/namingGitHubData";
+import { deleteSearchResult, postSearchResult } from "../../api/api";
 
 type ModalProps = {
   searchResults: TransformedResult;

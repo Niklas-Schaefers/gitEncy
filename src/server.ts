@@ -5,12 +5,36 @@ import path from "path";
 import express from "express";
 import router from "./server/routes";
 import { connectDatabase } from "./utils/database";
+import { getGitHubUserByAccessToken } from "./utils/auth";
 
-const { PORT = 6000 } = process.env;
+const client_id: string | undefined = process.env.CLIENT_ID;
+const client_secret: string | undefined = process.env.CLIENT_SECRET;
+const redircet_uri: string | undefined = process.env.REDIRCET_URI;
 
 const app = express();
 
 app.use(express.json());
+
+app.get("/oauth/githublogin", (_req, res) => {
+  res.redirect(
+    `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${redircet_uri}`
+  );
+});
+
+app.post("/oauth/github/login", async (_req, res) => {
+  const { code } = _req.body;
+
+  if (!code) {
+    return res.status(400).send("no code");
+  } else {
+    const user = await getGitHubUserByAccessToken({
+      code,
+      client_id,
+      client_secret,
+    });
+    return res.status(200).json(user);
+  }
+});
 
 app.use("/api", router);
 
@@ -31,6 +55,8 @@ if (process.env.MONGODB_URL === undefined) {
 
 connectDatabase(process.env.MONGODB_URL).then(() => {
   console.log("Database connected");
+
+  const { PORT = 6000 } = process.env;
   app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}}`);
   });

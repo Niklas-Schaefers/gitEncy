@@ -1,10 +1,21 @@
 import React from "react";
 import styles from "./App.module.css";
-import { BrowserRouter, Switch, Route, RouteProps } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  RouteProps,
+  Redirect,
+} from "react-router-dom";
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
 import SavedResultsPage from "./pages/SavedResults/SavedResultsPage";
 import Login from "./pages/Login/Login";
+import GithubCallback from "./auth/GithubCallback";
+import Profile from "./pages/Profile/Profile";
+import AuthProvider from "./auth/AuthContext";
+import ProtectedRoute from "../routing/ProtectedRoute";
+import Logout from "./pages/Logout/Logout";
 
 type CustomRouteProps = RouteProps & {
   Component: () => JSX.Element;
@@ -12,9 +23,8 @@ type CustomRouteProps = RouteProps & {
 };
 const routes: CustomRouteProps[] = [
   {
-    path: "/login",
-    Component: Login,
-    exact: true,
+    path: "/profile",
+    Component: Profile,
   },
   {
     path: "/savedresults",
@@ -24,20 +34,26 @@ const routes: CustomRouteProps[] = [
     path: "/search",
     Component: Search,
   },
-  { path: "/", Component: Home },
 ];
 function App(): JSX.Element {
   return (
     <div className={styles.container}>
-      <BrowserRouter>
-        <Switch>
-          {routes.map(({ Component, ...routeProps }) => (
-            <Route key={routeProps.path} {...routeProps}>
-              <Component />
-            </Route>
-          ))}
-        </Switch>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/auth/github/callback" component={GithubCallback} />
+            {routes.map(({ Component, ...routeProps }) => (
+              <ProtectedRoute key={routeProps.path} {...routeProps}>
+                <Component />
+              </ProtectedRoute>
+            ))}
+            <ProtectedRoute path="/logout" component={Logout} />
+            <Route path="/" render={() => <Redirect to="/home" />} />
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
