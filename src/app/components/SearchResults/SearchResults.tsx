@@ -28,7 +28,7 @@ function SearchResultsComponent({
               searchResults={searchResult}
               isSaved={false}
               setShowModal={setShowModal}
-            ></Modal>
+            />
           )}
         </span>
         <button className={styles.button} onClick={() => setShowModal(true)}>

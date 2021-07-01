@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Redirect, useLocation } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
-function GithubCallback(): JSX.Element {
+function GitHubCallbackPage(): JSX.Element {
   const { loginWithCode, user } = useAuth();
   const search = new URLSearchParams(useLocation().search);
   const code = search.get("code");
@@ -16,4 +16,4 @@ function GithubCallback(): JSX.Element {
   return <div>{user && <Redirect to="/profile" />}</div>;
 }
 
-export default GithubCallback;
+export default GitHubCallbackPage;

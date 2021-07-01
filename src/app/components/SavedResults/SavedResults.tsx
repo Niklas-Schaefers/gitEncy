@@ -3,8 +3,8 @@ import Modal from "../Modal/Modal";
 import styles from "./SavedResults.module.css";
 import { TransformedResult } from "../../../types";
 import namingGitHubData from "../../../utils/namingGitHubData";
-import CheckCodeIcon from "../Icons/CheckCodeIcon";
 import FolderIcon from "../Icons/FolderIcon";
+import CheckCodeIcon from "../Icons/CheckCodeIcon";
 
 type SavedResultsComponentProps = {
   searchResult: TransformedResult;
@@ -46,7 +46,7 @@ function SavedResultsComponent({
                   isSaved
                   setShowModal={setShowModal}
                   fetchData={fetchData}
-                ></Modal>
+                />
               )}
             </span>
             <button
