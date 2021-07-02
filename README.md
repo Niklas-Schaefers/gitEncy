@@ -2,7 +2,7 @@
 
 gitEncy uses the GitHub-RestApi/Oauth and MongoDB. The user is able to easily browser and search code of GitHub users' and organizations' repositories. Furthermore, they can save their favourite pieces of code inside the app's database (MongoDB).
 
-<img width="30%" align="right" alt="logo" src="![Cat](https://user-images.githubusercontent.com/81613530/124282707-6d6fb680-db4b-11eb-8a51-574e2809ab9f.png)
+<img width="30%" align="right" alt="logo" src="https://user-images.githubusercontent.com/81613530/124282707-6d6fb680-db4b-11eb-8a51-574e2809ab9f.png
 " />
 
 ### Demo
