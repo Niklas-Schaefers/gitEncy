@@ -35,6 +35,56 @@
   cursor: pointer;
 }
 
+.logoutMessage {
+  display: grid;
+  gap: 2em;
+  color: var(--text-color);
+  justify-items: center;
+  align-items: center;
+  padding-top: 9em;
+}
+
+.confirmLogoutButton,
+.stayButton {
+  display: flex;
+  background-color: var(--tertiary-bg-color);
+  border-radius: 1em;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+  width: 12rem;
+  font-size: 0.8em;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.confirmLogoutButton:active,
+.stayButton:active,
 .logoutButton:active {
   transform: translateY(0.1em);
+}
+.confirmLogoutButton__logoutIcon {
+  width: 1em;
+}
+
+.catLogo {
+  width: 10rem;
+  animation: wobble 1s 1;
+}
+
+@keyframes wobble {
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
