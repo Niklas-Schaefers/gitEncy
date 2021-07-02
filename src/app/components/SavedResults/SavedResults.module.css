@@ -13,6 +13,11 @@
   gap: 1em;
 }
 
+.toggle:active {
+  background-color: var(--details-color);
+  color: var(--primary-bg-color);
+}
+
 .button {
   display: flex;
   color: var(--text-color);
@@ -27,11 +32,12 @@
   justify-content: center;
   gap: 1em;
   align-items: center;
+  box-shadow: 0 0.1em var(--secondary-bg-color);
 }
 
-.toggle:active {
-  background-color: var(--details-color);
-  color: var(--primary-bg-color);
+.button:active {
+  box-shadow: 0;
+  transform: translateY(0.1em);
 }
 
 .ownerImageUrl {
