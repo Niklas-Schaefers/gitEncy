@@ -1,4 +1,4 @@
-# gitEncy
+# gitEncy - *organize your repos*
 
 gitEncy uses the GitHub-RestApi/Oauth and MongoDB. The user is able to easily browser and search code of GitHub users' and organizations' repositories. Furthermore, they can save their favourite pieces of code inside the app's database (MongoDB).
 
