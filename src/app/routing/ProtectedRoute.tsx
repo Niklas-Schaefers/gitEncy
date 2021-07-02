@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 
-function ProtectedRoute(props: ReactElement): JSX.Element {
+function ProtectedRoute(props: any): JSX.Element {
   const { user } = useAuth();
 
   return user ? <Route {...props} /> : <Redirect to="/login" />;
