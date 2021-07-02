@@ -51,10 +51,8 @@
   justify-content: center;
   gap: 0.7em;
   align-items: center;
-  box-shadow: 0 0.1em var(--details-color);
 }
 
 .submitButton:active {
-  box-shadow: 0 0 var(--details-color);
   transform: translateY(0.1em);
 }

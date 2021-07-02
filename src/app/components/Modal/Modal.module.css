@@ -53,12 +53,10 @@
   padding: 0.2em 2em;
   justify-content: center;
   gap: 1em;
-  box-shadow: 0 0.1em var(--primary-bg-color);
 }
 
 .modal__saveButton:active,
 .modal__backButton:active {
-  box-shadow: 0;
   transform: translateY(0.1em);
 }
 

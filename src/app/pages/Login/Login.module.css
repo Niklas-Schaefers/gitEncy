@@ -33,6 +33,9 @@
   gap: 1.5em;
 }
 
+.loginButton:active {
+  transform: translateY(0.1em);
+}
 .loginButton img {
   width: 2em;
   fill: var(--text-color);

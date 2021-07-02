@@ -60,3 +60,7 @@
   cursor: pointer;
   padding: 0.5em 1.5em;
 }
+
+.errorState button:active {
+  transform: translateY(0.1em);
+}

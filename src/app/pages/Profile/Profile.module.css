@@ -34,3 +34,7 @@
   color: var(--text-color);
   cursor: pointer;
 }
+
+.logoutButton:active {
+  transform: translateY(0.1em);
+}
