@@ -2,11 +2,11 @@
 
 gitEncy uses the GitHub-RestApi/Oauth and MongoDB. The user is able to easily browser and search code of GitHub users' and organizations' repositories. Furthermore, they can save their favourite pieces of code inside the app's database (MongoDB).
 
-<img width="30%" align="right" alt="logo" src="https://user-images.githubusercontent.com/81613530/124282707-6d6fb680-db4b-11eb-8a51-574e2809ab9f.png
-" />
+
 
 ### Demo
-
+<img width="15%" align="right" alt="logo" src="https://user-images.githubusercontent.com/81613530/124282707-6d6fb680-db4b-11eb-8a51-574e2809ab9f.png"
+ />
 Here you can view and test the app:
 
 - [Adobe XD](https://xd.adobe.com/view/bcda805d-43b9-4eaa-b9db-efe404b72102-e989/)
@@ -52,20 +52,26 @@ npm run storybook
 
 ### Built With
 
-React
+<img width="3%" alt="logo" src="https://user-images.githubusercontent.com/81613530/124288016-fb9a6b80-db50-11eb-894b-46220c096ee8.png"
+ /> [React](https://reactjs.org/)
 
 ### Tech Stack
 
-- JavaScript
-- MongoDB
-- React
-- React Hooks
-- React Router
-- TypeScript
-- Node.js
-- Express.js
-- Storybook
-- Heroku
-- RestAPI
-- Jest
-- Adobe XD
+- [TypeScript](https://www.typescriptlang.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Express.js](http://expressjs.com/)
+- [Node.js](https://nodejs.org)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [React Router](https://reactrouter.com/)
+- [GitHub API](https://docs.github.com/en/rest)
+- [OAuth](https://oauth.net/)
+- [Storybook](https://storybook.js.org/)
+- [Heroku](https://www.heroku.com)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [node-fetch](https://github.com/node-fetch/node-fetch)
+- [JEST](https://jestjs.io/)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Husky](https://github.com/typicode/husky)
+- [Lint-Staged](https://github.com/okonet/lint-staged)
+- [Adobe XD](https://www.adobe.com/products/xd.html)
