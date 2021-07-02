@@ -14,9 +14,7 @@ function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
 
   return (
     <div className={styles.container}>
-      <div className={styles.catLogo}>
-        <CatLogo />
-      </div>
+      <CatLogo className={styles.catLogo} />
       <form
         onSubmit={(e) => {
           e.preventDefault();

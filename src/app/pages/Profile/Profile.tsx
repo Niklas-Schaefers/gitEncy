@@ -16,9 +16,7 @@ function Profile(): JSX.Element {
   return (
     <div className={styles.container}>
       <button className={styles.logoutButton} onClick={LogOutandMessage}>
-        <div className={styles.logoutIcon}>
-          <LogoutIcon />
-        </div>
+        <LogoutIcon className={styles.logoutIcon} />
       </button>
       <h1 className={styles.userName}>{user.name}</h1>
       <img className={styles.userPhoto} src={user.avatar_url} alt="" />

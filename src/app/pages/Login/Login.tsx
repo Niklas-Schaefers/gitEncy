@@ -7,16 +7,13 @@ function Login(): JSX.Element {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <LoginIcon />
-        </div>
+        <LoginIcon className={styles.logo} />
         <a className={styles.loginButton} href="/oauth/githublogin">
+          <img src="/src/app/components/Icons/gitHubLogo.png" />
           Log in with GitHub
         </a>
       </div>
-      <div className={styles.mainBubble}>
-        <MainBubble />
-      </div>
+      <MainBubble className={styles.mainBubble} />
     </div>
   );
 }
