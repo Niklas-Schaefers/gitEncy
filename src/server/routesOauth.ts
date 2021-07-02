@@ -3,13 +3,13 @@ import { getGitHubUserByAccessToken } from "./../utils/auth";
 
 const clientId: string | undefined = process.env.CLIENT_ID;
 const clientSecret: string | undefined = process.env.CLIENT_SECRET;
-const redircetUri: string | undefined = process.env.REDIRCET_URI;
+const redirectUri: string | undefined = process.env.REDIRECT_URI;
 
 const routerOauth = express.Router();
 
 routerOauth.get("/githublogin", (_req, res) => {
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${redircetUri}`
+    `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${redirectUri}`
   );
 });
 
