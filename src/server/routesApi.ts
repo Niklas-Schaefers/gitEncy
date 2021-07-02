@@ -32,7 +32,7 @@ routerApi.get("/search", async (req, res, next) => {
 
 routerApi.post("/searchresult", async (req, res) => {
   await saveSearchResult(req.body);
-  res.send("Searchresult saved in db");
+  res.status(200).json("Searchresult saved in db");
 });
 
 routerApi.get("/savedresults", async (_req, res) => {
@@ -42,11 +42,7 @@ routerApi.get("/savedresults", async (_req, res) => {
 
 routerApi.delete("/searchresult", async (req, res) => {
   await deleteSavedSearchResults(req.body);
-  res.send("Searchresult deleted from db");
-});
-
-routerApi.get("/githublogin", async (_req, res) => {
-  res.send("test");
+  res.status(200).send("Searchresult deleted from db");
 });
 
 export default routerApi;
