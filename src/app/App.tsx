@@ -13,7 +13,6 @@ import SavedResultsPage from "./pages/SavedResults/SavedResultsPage";
 import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import AuthProvider from "./auth/AuthContext";
-import Logout from "./pages/Logout/Logout";
 import ProtectedRoute from "./routing/ProtectedRoute";
 import GitHubCallbackPage from "./auth/GitHubCallbackPage";
 
@@ -52,7 +51,6 @@ function App(): JSX.Element {
                 <Component />
               </ProtectedRoute>
             ))}
-            <ProtectedRoute path="/logout" component={Logout} />
             <Route path="/" render={() => <Redirect to="/home" />} />
           </Switch>
         </BrowserRouter>
