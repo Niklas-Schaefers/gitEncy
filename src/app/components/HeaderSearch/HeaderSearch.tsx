@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CatLogo from "../Icons/CatLogo";
+import SearchCodeIcon from "../Icons/SearchCodeIcon";
 import SearchField from "../SearchField/SearchField";
 import styles from "./HeaderSearch.module.css";
 
@@ -13,9 +14,7 @@ function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
 
   return (
     <div className={styles.container}>
-      <div className={styles.catLogo}>
-        <CatLogo />
-      </div>
+      <CatLogo className={styles.catLogo} />
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -33,7 +32,10 @@ function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
           onChange={setUser}
           placeholder="Please enter GitHub user..."
         />
-        <button className={styles.submitButton}>Submit</button>
+        <button className={styles.submitButton}>
+          <SearchCodeIcon />
+          Submit
+        </button>
       </form>
     </div>
   );

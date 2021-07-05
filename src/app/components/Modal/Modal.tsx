@@ -5,6 +5,9 @@ import CodeHighlighted from "../CodeHighlighted/CodeHighlighted";
 import { TransformedResult } from "../../../types";
 import namingGitHubData from "../../../utils/namingGitHubData";
 import { deleteSearchResult, postSearchResult } from "../../api/api";
+import DeleteIcon from "../Icons/DeleteIcon";
+import SaveIcon from "../Icons/SaveIcon";
+import CloseIcon from "../Icons/CloseIcon";
 
 type ModalProps = {
   searchResults: TransformedResult;
@@ -53,6 +56,7 @@ function Modal({
                   setShowModal(false);
                 }}
               >
+                <SaveIcon />
                 Save
               </button>
             )}
@@ -65,6 +69,7 @@ function Modal({
                   setShowModal(false);
                 }}
               >
+                <DeleteIcon />
                 Delete
               </button>
             )}
@@ -72,6 +77,7 @@ function Modal({
               className={styles.modal__backButton}
               onClick={() => setShowModal(false)}
             >
+              <CloseIcon />
               Close
             </button>
           </div>

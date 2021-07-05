@@ -3,6 +3,7 @@ import Modal from "../Modal/Modal";
 import styles from "./SearchResults.module.css";
 import namingGitHubData from "../../../utils/namingGitHubData";
 import { TransformedResult } from "../../../types";
+import CheckCodeIcon from "../Icons/CheckCodeIcon";
 
 type SearchResultsComponentProps = {
   searchResult: TransformedResult;
@@ -27,11 +28,12 @@ function SearchResultsComponent({
               searchResults={searchResult}
               isSaved={false}
               setShowModal={setShowModal}
-            ></Modal>
+            />
           )}
         </span>
         <button className={styles.button} onClick={() => setShowModal(true)}>
           Check Code
+          <CheckCodeIcon />
         </button>
       </div>
     </div>

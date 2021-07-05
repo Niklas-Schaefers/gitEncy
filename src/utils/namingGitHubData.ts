@@ -1,6 +1,6 @@
 import type { TransformedResult } from "../types";
 
-type RenamedResults = {
+type RenamedResultsProps = {
   userName: string;
   fileName: string;
   repoName: string;
@@ -8,7 +8,7 @@ type RenamedResults = {
 
 export function namingGitHubData(
   searchResults: TransformedResult
-): RenamedResults {
+): RenamedResultsProps {
   const userName = searchResults.repoName.substring(
     0,
     searchResults.repoName.lastIndexOf("/")

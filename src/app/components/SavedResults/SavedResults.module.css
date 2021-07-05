@@ -5,27 +5,37 @@
   color: var(--text-color);
   border-radius: 1em;
   cursor: pointer;
-  padding: 1em 3em;
+  padding: 1em 2em;
   text-align: left;
-  font-size: 0.8em;
-}
-
-.button {
-  color: var(--text-color);
-  background-color: var(--tertiary-bg-color);
-  border-radius: 1em;
-  border: none;
-  cursor: pointer;
-  width: 10em;
-  padding: 0.5em 1.5em;
-  font-size: 0.8em;
-  grid-column: 1;
-  grid-row: 4;
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 
 .toggle:active {
   background-color: var(--details-color);
   color: var(--primary-bg-color);
+}
+
+.button {
+  display: flex;
+  color: var(--text-color);
+  background-color: var(--tertiary-bg-color);
+  border-radius: 1em;
+  border: none;
+  cursor: pointer;
+  width: 12em;
+  font-size: 0.8em;
+  grid-column: 1;
+  grid-row: 4;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+}
+
+.button:active {
+  transform: translateY(0.1em);
 }
 
 .ownerImageUrl {

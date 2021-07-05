@@ -1,20 +1,10 @@
 import type { TransformedResult } from "../types";
 import { getSearchResultsCollection } from "./database";
 
-export const saveSearchResult = async ({
-  name,
-  ownerImageUrl,
-  rawUrl,
-  repoName,
-  searchValue,
-}: TransformedResult): Promise<void> => {
-  await getSearchResultsCollection().insertOne({
-    name,
-    ownerImageUrl,
-    rawUrl,
-    repoName,
-    searchValue,
-  });
+export const saveSearchResult = async (
+  SearchResult: TransformedResult
+): Promise<void> => {
+  await getSearchResultsCollection().insertOne(SearchResult);
 };
 
 export const readSavedSearchResults = async (): Promise<
@@ -26,18 +16,8 @@ export const readSavedSearchResults = async (): Promise<
     .toArray();
 };
 
-export const deleteSavedSearchResults = async ({
-  name,
-  ownerImageUrl,
-  rawUrl,
-  repoName,
-  searchValue,
-}: TransformedResult): Promise<void> => {
-  await getSearchResultsCollection().deleteOne({
-    name,
-    ownerImageUrl,
-    rawUrl,
-    repoName,
-    searchValue,
-  });
+export const deleteSavedSearchResults = async (
+  SearchResult: TransformedResult
+): Promise<void> => {
+  await getSearchResultsCollection().deleteOne(SearchResult);
 };

@@ -11,16 +11,10 @@ function Search(): JSX.Element {
     <div className={styles.container}>
       <h1 className={styles.headline}>gitEncy</h1>{" "}
       <h2 className={styles.subTitle}>organize your repos</h2>
-      <div className={styles.mainBubble}>
-        <MainBubble />
-      </div>
-      <div className={styles.mainPinkBubble}>
-        <MainPinkBubble />
-      </div>
+      <MainBubble className={styles.mainBubble} />
+      <MainPinkBubble className={styles.mainPinkBubble} />
       <Link className={styles.catLogo} to="/login">
-        <div>
-          <CatLogo />
-        </div>
+        <CatLogo />
       </Link>
     </div>
   );

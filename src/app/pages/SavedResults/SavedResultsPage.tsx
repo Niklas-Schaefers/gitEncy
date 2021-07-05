@@ -4,6 +4,7 @@ import HeaderBar from "../../components/HeaderBar/HeaderBar";
 import styles from "./SavedResultsPage.module.css";
 import SavedResultsComponent from "../../components/SavedResults/SavedResults";
 import { TransformedResult } from "../../../types";
+import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
 
 function SavedResultsPage(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
@@ -38,7 +39,20 @@ function SavedResultsPage(): JSX.Element {
   ));
 
   if (error) {
-    return <>error...</>;
+    return (
+      <div className={styles.errorState}>
+        <ErrorCatIcon />
+        <div>Ups... User or code not found, try again</div>
+        <button
+          onClick={() => {
+            setError(null);
+            setIsLoading(true);
+          }}
+        >
+          Try again
+        </button>
+      </div>
+    );
   } else {
     return (
       <div className={styles.container}>

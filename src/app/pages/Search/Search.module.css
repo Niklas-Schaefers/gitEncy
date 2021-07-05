@@ -42,3 +42,25 @@
     -webkit-transform: rotate(360deg);
   }
 }
+
+.errorState {
+  display: grid;
+  gap: 2em;
+  color: var(--text-color);
+  justify-items: center;
+  align-items: center;
+  padding-top: 9em;
+}
+
+.errorState button {
+  background-color: var(--tertiary-bg-color);
+  border-radius: 1em;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+}
+
+.errorState button:active {
+  transform: translateY(0.1em);
+}
