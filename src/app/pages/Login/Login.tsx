@@ -2,7 +2,7 @@ import React from "react";
 import LoginIcon from "../../components/Icons/LoginIcon";
 import MainBubble from "../../components/Styling Elements/MainBubble";
 import styles from "./Login.module.css";
-import gitHubLogo from "/src/app/components/Icons/GitHubLogo_original.png";
+import gitHubLogo from "/src/app/components/Icons/gitHubLogo.png";
 
 function Login(): JSX.Element {
   return (
