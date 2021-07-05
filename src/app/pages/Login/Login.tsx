@@ -9,7 +9,10 @@ function Login(): JSX.Element {
       <div className={styles.container}>
         <LoginIcon className={styles.logo} />
         <a className={styles.loginButton} href="/oauth/githublogin">
-          <img src="/src/app/components/Icons/gitHubLogo.png" />
+          <img
+            src="/src/app/components/Icons/gitHubLogo.png"
+            alt="GitHub Logo"
+          />
           Log in with GitHub
         </a>
       </div>
