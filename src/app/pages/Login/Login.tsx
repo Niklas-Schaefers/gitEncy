@@ -2,6 +2,7 @@ import React from "react";
 import LoginIcon from "../../components/Icons/LoginIcon";
 import MainBubble from "../../components/Styling Elements/MainBubble";
 import styles from "./Login.module.css";
+import gitHubLogo from "/src/app/components/Icons/GitHubLogo_original.png";
 
 function Login(): JSX.Element {
   return (
@@ -9,10 +10,7 @@ function Login(): JSX.Element {
       <div className={styles.container}>
         <LoginIcon className={styles.logo} />
         <a className={styles.loginButton} href="/oauth/githublogin">
-          <img
-            src="/src/app/components/Icons/GitHubLogo_original.png"
-            alt="GitHub Logo"
-          />
+          <img src={gitHubLogo} alt="GitHub Logo" />
           Log in with GitHub
         </a>
       </div>
