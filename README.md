@@ -16,36 +16,42 @@ The app is currently only supported as a mobile version.
 ## Install
 
 First, install dependencies:
+
 ```shell
 npm install
 ```
 
 In the project directory, you can then run:
+
 ```shell
 npm run build
 ```
+
 Builds the app for production to the dist folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
 ```shell
 npm start
 ```
+
 Runs the server in production mode and serve production bundle from npm run build
 
 ```shell
 npm run server:dev
 ```
+
 Runs the server in development mode.
 
 ```shell
 npm run client:dev
 ```
+
 Runs the app in development mode. Open http://localhost:3000 (default PORT) to view it in the browser. The page will automatically reload if you make changes to the code. You will see the build errors and lint warnings in the console.
 
 ```shell
 npm run storybook
 ```
-Runs storybook.
 
+Runs storybook.
 
 ## Developing
 
