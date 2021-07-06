@@ -23,6 +23,7 @@ export type TransformedResult = {
   rawUrl: string;
   repoName: string;
   searchValue: string;
+  id: string;
 };
 
 export type SearchResults = {
@@ -33,6 +34,7 @@ export type User = {
   name: string;
   login: string;
   avatar_url: string;
+  id: string;
 };
 
 export type AccessTokenRequest = {

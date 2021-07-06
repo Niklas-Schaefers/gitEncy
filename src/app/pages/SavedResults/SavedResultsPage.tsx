@@ -5,19 +5,24 @@ import styles from "./SavedResultsPage.module.css";
 import SavedResultsComponent from "../../components/SavedResults/SavedResults";
 import { TransformedResult } from "../../../types";
 import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
+import { useUser } from "../../auth/AuthContext";
 
 function SavedResultsPage(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const user = useUser();
 
-  const fetchData = useCallback(() => {
+  const fetchDataAndFilterByUserID = useCallback(() => {
     fetch(`/api/savedresults`)
       .then((response) => response.json())
       .then(
-        (data) => {
+        (data: TransformedResult[]) => {
+          const filtered = data.filter(
+            (data: TransformedResult) => data.id === user.id
+          );
           setIsLoading(true);
-          setSearchResults(data);
+          setSearchResults(filtered);
         },
         (error) => {
           setIsLoading(true);
@@ -27,14 +32,14 @@ function SavedResultsPage(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    fetchDataAndFilterByUserID();
+  }, [fetchDataAndFilterByUserID]);
 
   const savedElements = searchResults.map((searchResult: TransformedResult) => (
     <SavedResultsComponent
       key={searchResult.rawUrl}
       searchResult={searchResult}
-      fetchData={fetchData}
+      fetchData={fetchDataAndFilterByUserID}
     />
   ));
 
