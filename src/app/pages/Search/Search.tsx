@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GitHubData, TransformedResult } from "../../../types";
+import { useUser } from "../../auth/AuthContext";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
 import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
@@ -10,6 +11,7 @@ function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const user = useUser();
 
   function fetchGitHubData(searchValue: string, filterValue: string) {
     setIsLoading(true);
@@ -28,6 +30,7 @@ function Search(): JSX.Element {
               )
               .replace("/blob", ""),
             searchValue: searchValue,
+            id: user.id,
           };
         });
         setSearchResults(transformed);
