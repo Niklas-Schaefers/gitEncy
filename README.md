@@ -1,15 +1,15 @@
+<img width="25%" align="right" alt="logo" src="https://user-images.githubusercontent.com/81613530/124765145-fa44b680-df35-11eb-9fd4-4d2ec521ea37.gif"
+ />
 # gitEncy - _organize your repos_
 
 gitEncy uses the GitHub-RestApi/Oauth and MongoDB. The user is able to easily browser and search code of GitHub users' and organizations' repositories. Furthermore, they can save their favourite pieces of code inside the app's database (MongoDB).
 
-### Demo
+## Demo 
 
-<img width="15%" align="right" alt="logo" src="https://user-images.githubusercontent.com/81613530/124282707-6d6fb680-db4b-11eb-8a51-574e2809ab9f.png"
- />
 Here you can view and test the app:
 
 - [Adobe XD](https://xd.adobe.com/view/bcda805d-43b9-4eaa-b9db-efe404b72102-e989/)
-- [Heroku](https://gitency.herokuapp.com/)
+- [Heroku](https://gitency.herokuapp.com/) (First deployment takes some time Heroku servers are quite slow)
 
 The app is currently only supported as a mobile version.
 
@@ -20,6 +20,18 @@ First, install dependencies:
 ```shell
 npm install
 ```
+
+
+
+Create a `.env` file with the follwing environment variables
+
+
+KEY	| VALUE
+------------ | -------------
+MONGODB_URL |	Required. Database Access URL from [MongoDB](https://www.mongodb.com/)
+CLIENT_ID | Required. The client ID you received from GitHub when you [register](https://github.com/settings/applications/new) your OAuth App.
+CLIENT_SECRET | Required. The client secret you received from GitHub for your OAuth App.
+REDIRECT_URI | The URL in the application where users are sent after authorization.
 
 In the project directory, you can then run:
 
@@ -52,6 +64,7 @@ npm run storybook
 ```
 
 Runs storybook.
+
 
 ## Developing
 
