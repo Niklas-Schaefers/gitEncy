@@ -1,5 +1,5 @@
 import React from "react";
-import SearchResultsComponent from "./SearchResults";
+import SearchResultsComponent from "./SearchResultsComponent";
 
 export default {
   title: "Component/Results",
