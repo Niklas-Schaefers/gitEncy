@@ -1,6 +1,8 @@
 .wrapper {
   display: grid;
   height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .container {
   grid-column: 1;
