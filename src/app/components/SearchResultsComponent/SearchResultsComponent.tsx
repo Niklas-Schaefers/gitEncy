@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../Modal/Modal";
-import styles from "./SearchResults.module.css";
+import styles from "./SearchResultsComponent.module.css";
 import namingGitHubData from "../../../utils/namingGitHubData";
 import { TransformedResult } from "../../../types";
 import CheckCodeIcon from "../Icons/CheckCodeIcon";
