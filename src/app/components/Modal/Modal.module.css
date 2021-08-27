@@ -10,7 +10,7 @@
   top: 10%;
   left: 0%;
   right: 0%;
-  max-width: 20rem;
+  max-width: 60%;
   margin: 0 auto;
   height: 80%;
 }
@@ -68,6 +68,36 @@
   padding: 3em;
   height: 100%;
   text-transform: none;
+  zoom: 1.6;
+}
+
+@media (max-width: 800px) {
+  .code {
+    zoom: 1;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    color: var(--secondary-bg-color);
+    padding: 3em;
+    height: 100%;
+    text-transform: none;
+  }
+  .modal {
+    background-color: #f8f8ff;
+    border-radius: 3em;
+    font-size: 0.6em;
+    text-align: left;
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    top: 10%;
+    left: 0%;
+    right: 0%;
+    max-width: 80%;
+    margin: 0 auto;
+    height: 80%;
+  }
 }
 
 .code::-webkit-scrollbar {

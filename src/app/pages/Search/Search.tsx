@@ -4,7 +4,7 @@ import { useUser } from "../../auth/AuthContext";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
 import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
-import SearchResultsComponent from "../../components/SearchResults/SearchResults";
+import SearchResultsComponent from "../../components/SearchResultsComponent/SearchResultsComponent";
 import styles from "./Search.module.css";
 
 function Search(): JSX.Element {
