@@ -7,6 +7,7 @@ export async function postSearchResult({
   repoName,
   searchValue,
   id,
+  saveDate,
 }: TransformedResult): Promise<TransformedResult> {
   const response = await fetch("/api/searchresult", {
     method: "POST",
@@ -20,6 +21,7 @@ export async function postSearchResult({
       repoName,
       searchValue,
       id,
+      saveDate,
     }),
   });
   if (!response.ok) {
@@ -37,6 +39,7 @@ export async function deleteSearchResult({
   repoName,
   searchValue,
   id,
+  saveDate,
 }: TransformedResult): Promise<void> {
   const response = await fetch("/api/searchresult", {
     method: "DELETE",
@@ -50,6 +53,7 @@ export async function deleteSearchResult({
       repoName,
       searchValue,
       id,
+      saveDate,
     }),
   });
   if (!response.ok) {

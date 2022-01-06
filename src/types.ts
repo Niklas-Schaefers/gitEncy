@@ -24,6 +24,7 @@ export type TransformedResult = {
   repoName: string;
   searchValue: string;
   id: string;
+  saveDate: string;
 };
 
 export type SearchResults = {

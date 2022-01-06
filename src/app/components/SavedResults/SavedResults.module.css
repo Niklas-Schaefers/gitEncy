@@ -28,10 +28,11 @@
   width: 12em;
   font-size: 0.8em;
   grid-column: 1;
-  grid-row: 4;
+  grid-row: 5;
   justify-content: center;
   gap: 1em;
   align-items: center;
+  margin-top: 0.5em;
 }
 
 .button:active {
@@ -42,7 +43,7 @@
   width: 7em;
   border-radius: 50%;
   grid-column: 2;
-  grid-row: 1/5;
+  grid-row: 1/6;
   justify-self: right;
   padding: 0.5em 2em 0 0;
 }
@@ -65,6 +66,11 @@
 .repoName {
   grid-column: 1;
   grid-row: 3;
+}
+
+.saveDate {
+  grid-column: 1;
+  grid-row: 4;
 }
 
 .collapse {
