@@ -18,6 +18,12 @@ function Search(): JSX.Element {
     fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
       .then((data: GitHubData) => {
+        const formattedCurrentDate = new Date().toLocaleDateString("de-DE", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+        console.log(formattedCurrentDate);
         const transformed: TransformedResult[] = data.items.map((item) => {
           return {
             name: item.name,
@@ -31,6 +37,7 @@ function Search(): JSX.Element {
               .replace("/blob", ""),
             searchValue: searchValue,
             id: user.id,
+            saveDate: formattedCurrentDate,
           };
         });
         setSearchResults(transformed);

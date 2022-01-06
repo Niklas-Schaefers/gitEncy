@@ -15,6 +15,7 @@ export const Default = (): JSX.Element => (
       repoName: "string",
       searchValue: "string",
       id: "192382193",
+      saveDate: "02.02.2022",
     }}
     fetchData={() => true}
   />

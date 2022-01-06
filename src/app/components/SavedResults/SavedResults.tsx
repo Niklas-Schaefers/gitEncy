@@ -39,6 +39,9 @@ function SavedResultsComponent({
             <span className={styles.fileName}>File: {fileName}</span>
             <span className={styles.userName}>User: {userName}</span>
             <span className={styles.repoName}>Repo: {repoName}</span>
+            <span className={styles.saveDate}>
+              Saved: {searchResult.saveDate}
+            </span>
             <span>
               {showModal && (
                 <Modal
