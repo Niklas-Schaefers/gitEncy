@@ -16,7 +16,6 @@ function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
     <div className={styles.container}>
       <CatLogo className={styles.catLogo} />
       <form
-        data-testid="test1"
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit(search, user);

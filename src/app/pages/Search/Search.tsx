@@ -23,7 +23,6 @@ function Search(): JSX.Element {
           month: "2-digit",
           day: "2-digit",
         });
-        console.log(formattedCurrentDate);
         const transformed: TransformedResult[] = data.items.map((item) => {
           return {
             name: item.name,
