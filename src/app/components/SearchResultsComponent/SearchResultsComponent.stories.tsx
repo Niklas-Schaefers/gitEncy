@@ -15,6 +15,7 @@ export const Default = (): JSX.Element => (
       repoName: "string",
       searchValue: "string",
       id: "72827321",
+      saveDate: "02.02.2022",
     }}
   />
 );
