@@ -1,16 +1,21 @@
-export function parseJSONFromLocalStorage(
-  key: string,
-  defaultValue: string
-): string {
+type StoreValues = {
+  searchValue: string;
+  filterValue: string;
+};
+
+export function parseJSONFromLocalStorage(key: string): StoreValues | null {
   const json = localStorage.getItem(key);
   if (json === null) {
-    return defaultValue;
+    return null;
   }
   const data = JSON.parse(json);
   return data;
 }
 
-export function stringifyJSONToLocalStorage(key: string, value: string): void {
+export function stringifyJSONToLocalStorage(
+  key: string,
+  value: StoreValues
+): void {
   const json = JSON.stringify(value);
   localStorage.setItem(key, json);
 }

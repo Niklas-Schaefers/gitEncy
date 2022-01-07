@@ -16,13 +16,18 @@ function Search(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const user = useUser();
-  const searchValueFromStorage = parseJSONFromLocalStorage("searchValue", "");
-  const filterValueFromStorage = parseJSONFromLocalStorage("filterValue", "");
+  const searchFilterValueStore = parseJSONFromLocalStorage(
+    "searchFilterValueStore"
+  );
 
   useEffect(() => {
-    if (!searchValueFromStorage || !filterValueFromStorage) {
+    if (!searchFilterValueStore) {
       return;
-    } else fetchGitHubData(searchValueFromStorage, filterValueFromStorage);
+    } else
+      fetchGitHubData(
+        searchFilterValueStore.searchValue,
+        searchFilterValueStore.filterValue
+      );
   }, []);
 
   function fetchGitHubData(searchValue: string, filterValue: string) {
@@ -34,8 +39,10 @@ function Search(): JSX.Element {
           data[i].id = user.id;
         }
         setSearchResults(data);
-        stringifyJSONToLocalStorage("searchValue", searchValue);
-        stringifyJSONToLocalStorage("filterValue", filterValue);
+        stringifyJSONToLocalStorage("searchFilterValueStore", {
+          searchValue,
+          filterValue,
+        });
         setIsLoading(false);
       })
       .catch((error) => {
