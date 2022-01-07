@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TransformedResult } from "../../../types";
 import { useUser } from "../../auth/AuthContext";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
@@ -6,12 +6,24 @@ import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
 import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
 import SearchResultsComponent from "../../components/SearchResultsComponent/SearchResultsComponent";
 import styles from "./Search.module.css";
+import {
+  parseJSONFromLocalStorage,
+  stringifyJSONToLocalStorage,
+} from "../../../utils/localStorage";
 
 function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const user = useUser();
+  const searchValueFromStorage = parseJSONFromLocalStorage("searchValue", "");
+  const filterValueFromStorage = parseJSONFromLocalStorage("filterValue", "");
+
+  useEffect(() => {
+    if (!searchValueFromStorage || !filterValueFromStorage) {
+      return;
+    } else fetchGitHubData(searchValueFromStorage, filterValueFromStorage);
+  }, []);
 
   function fetchGitHubData(searchValue: string, filterValue: string) {
     setIsLoading(true);
@@ -22,12 +34,15 @@ function Search(): JSX.Element {
           data[i].id = user.id;
         }
         setSearchResults(data);
+        stringifyJSONToLocalStorage("searchValue", searchValue);
+        stringifyJSONToLocalStorage("filterValue", filterValue);
         setIsLoading(false);
       })
       .catch((error) => {
         setError(error);
       });
   }
+
   const searchElements = searchResults.map((searchResult) => (
     <SearchResultsComponent
       key={searchResult.rawUrl}
