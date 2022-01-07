@@ -3,7 +3,7 @@ type StoreValues = {
   filterValue: string;
 };
 
-export function parseJSONFromLocalStorage(key: string): StoreValues | null {
+export function parseJSONFromLocalStorage(key: string): any {
   const json = localStorage.getItem(key);
   if (json === null) {
     return null;
