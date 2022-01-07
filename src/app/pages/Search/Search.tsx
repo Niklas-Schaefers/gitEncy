@@ -1,52 +1,55 @@
-import React, { useState } from "react";
-import { GitHubData, TransformedResult } from "../../../types";
+import React, { useEffect, useState } from "react";
+import { TransformedResult } from "../../../types";
 import { useUser } from "../../auth/AuthContext";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
 import ErrorCatIcon from "../../components/Icons/ErrorCatIcon";
 import SearchResultsComponent from "../../components/SearchResultsComponent/SearchResultsComponent";
 import styles from "./Search.module.css";
+import {
+  parseJSONFromLocalStorage,
+  stringifyJSONToLocalStorage,
+} from "../../../utils/localStorage";
 
 function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<TransformedResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const user = useUser();
+  const searchFilterValueStore = parseJSONFromLocalStorage(
+    "searchFilterValueStore"
+  );
+
+  useEffect(() => {
+    if (!searchFilterValueStore) {
+      return;
+    } else
+      fetchGitHubData(
+        searchFilterValueStore.searchValue,
+        searchFilterValueStore.filterValue
+      );
+  }, []);
 
   function fetchGitHubData(searchValue: string, filterValue: string) {
     setIsLoading(true);
     fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
-      .then((data: GitHubData) => {
-        const formattedCurrentDate = new Date().toLocaleDateString("de-DE", {
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
+      .then((data: TransformedResult[]) => {
+        for (let i = 0; i < data.length; i++) {
+          data[i].id = user.id;
+        }
+        setSearchResults(data);
+        stringifyJSONToLocalStorage("searchFilterValueStore", {
+          searchValue,
+          filterValue,
         });
-        console.log(formattedCurrentDate);
-        const transformed: TransformedResult[] = data.items.map((item) => {
-          return {
-            name: item.name,
-            repoName: item.repository.full_name,
-            ownerImageUrl: item.repository.owner.avatar_url,
-            rawUrl: item.html_url
-              .replace(
-                "https://github.com/",
-                "https://raw.githubusercontent.com/"
-              )
-              .replace("/blob", ""),
-            searchValue: searchValue,
-            id: user.id,
-            saveDate: formattedCurrentDate,
-          };
-        });
-        setSearchResults(transformed);
         setIsLoading(false);
       })
-      .catch((e) => {
-        setError(e);
+      .catch((error) => {
+        setError(error);
       });
   }
+
   const searchElements = searchResults.map((searchResult) => (
     <SearchResultsComponent
       key={searchResult.rawUrl}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { parseJSONFromLocalStorage } from "../../../utils/localStorage";
 import CatLogo from "../Icons/CatLogo";
 import SearchCodeIcon from "../Icons/SearchCodeIcon";
 import SearchField from "../SearchField/SearchField";
@@ -9,14 +10,16 @@ type HeaderSearchProps = {
 };
 
 function HeaderSearch({ onSubmit }: HeaderSearchProps): JSX.Element {
-  const [search, setSearch] = useState("");
-  const [user, setUser] = useState("");
+  const searchFilterValueStore = parseJSONFromLocalStorage(
+    "searchFilterValueStore"
+  );
+  const [search, setSearch] = useState(searchFilterValueStore?.searchValue);
+  const [user, setUser] = useState(searchFilterValueStore?.filterValue);
 
   return (
     <div className={styles.container}>
       <CatLogo className={styles.catLogo} />
       <form
-        data-testid="test1"
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit(search, user);

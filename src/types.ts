@@ -23,7 +23,7 @@ export type TransformedResult = {
   rawUrl: string;
   repoName: string;
   searchValue: string;
-  id: string;
+  id: string | undefined;
   saveDate: string;
 };
 
