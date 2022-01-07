@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GitHubData, TransformedResult } from "../../../types";
+import { TransformedResult } from "../../../types";
 import { useUser } from "../../auth/AuthContext";
 import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import HeaderSearch from "../../components/HeaderSearch/HeaderSearch";
@@ -17,33 +17,15 @@ function Search(): JSX.Element {
     setIsLoading(true);
     fetch(`/api/search?code=${searchValue}&user=${filterValue}`)
       .then((response) => response.json())
-      .then((data: GitHubData) => {
-        const formattedCurrentDate = new Date().toLocaleDateString("de-DE", {
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-        });
-        const transformed: TransformedResult[] = data.items.map((item) => {
-          return {
-            name: item.name,
-            repoName: item.repository.full_name,
-            ownerImageUrl: item.repository.owner.avatar_url,
-            rawUrl: item.html_url
-              .replace(
-                "https://github.com/",
-                "https://raw.githubusercontent.com/"
-              )
-              .replace("/blob", ""),
-            searchValue: searchValue,
-            id: user.id,
-            saveDate: formattedCurrentDate,
-          };
-        });
-        setSearchResults(transformed);
+      .then((data: TransformedResult[]) => {
+        for (let i = 0; i < data.length; i++) {
+          data[i].id = user.id;
+        }
+        setSearchResults(data);
         setIsLoading(false);
       })
-      .catch((e) => {
-        setError(e);
+      .catch((error) => {
+        setError(error);
       });
   }
   const searchElements = searchResults.map((searchResult) => (
